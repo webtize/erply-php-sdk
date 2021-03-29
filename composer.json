@@ -2,7 +2,7 @@
     "name": "webtize/erply-php-sdk",
     "description": "Erply PHP SDK",
     "type": "library",
-    "license": [true],
+    "license": "CC-BY-NC-SA-4.0",
     "require": {
         "guzzlehttp/guzzle": "7.3"
     },
