@@ -472,8 +472,8 @@ class ErplyAPI
             $response = $this->sendPostDataToErply($requestParams);
             return $response;
         } else {
-            OtherAPI::print_out('Maximum api calls reached');
-            OtherAPI::print_out("Sleeping For 5 Min");
+            print_r('Maximum api calls reached');
+            print_r("Sleeping For 5 Min");
             sleep(300);
         }
     }
@@ -489,8 +489,8 @@ class ErplyAPI
             }
             return $responses;
         } else {
-            OtherAPI::print_out('Maximum api calls reached');
-            OtherAPI::print_out("Sleeping For 5 Min");
+            print_r('Maximum api calls reached');
+            print_r("Sleeping For 5 Min");
             sleep(300);
         }
     }
@@ -541,8 +541,8 @@ class ErplyAPI
         $this->setCode(env('ERPLY_CLIENTID'));
         $response = $this->sendSingle($parameters);
         if ($response->status->errorCode == 1002) {
-            OtherAPI::print_out('Maximum api calls reached');
-            OtherAPI::print_out("Sleeping For 5 Min");
+            print_r('Maximum api calls reached');
+            print_r("Sleeping For 5 Min");
             sleep(300);
         }
         if (isset($response->records[0]->sessionKey)) {
@@ -563,8 +563,8 @@ class ErplyAPI
         $this->setCode(env('ERPLY_CLIENTID'));
         $response = $this->sendSingle($parameters);
         if ($response->status->errorCode == 1002) {
-            OtherAPI::print_out('Maximum api calls reached');
-            OtherAPI::print_out("Sleeping For 5 Min");
+            print_r('Maximum api calls reached');
+            print_r("Sleeping For 5 Min");
             sleep(300);
         }
         if (isset($response->records[0]->sessionKey)) {
@@ -589,9 +589,7 @@ class ErplyAPI
 
     private function sendPostDataToErply($requestParams)
     {
-        $erplyApi = sprintf(
-            env('ERPLY_API_URL', 'https://%s.erply.com/api/'), $this->code
-        );
+        $erplyApi = env('ERPLY_API_URL', 'https://'.$this->getCode().'.erply.com/api/');
         $curl_options = [
             CURLOPT_SSLVERSION => CURL_SSLVERSION_TLSv1_2,
             CURLOPT_SSL_VERIFYHOST => 2,
@@ -614,8 +612,7 @@ class ErplyAPI
                 'version' => 1.1,
             ]);
         } catch (\Exception $e) {
-            $body = Psr7\stream_for('{}');
-            $response = new Psr7\Response(200, ['X-Foo' => 'Bar'], $body);
+            print_r($e->getMessage());
         }
         $response = json_decode($response->getBody());
         return $response;
