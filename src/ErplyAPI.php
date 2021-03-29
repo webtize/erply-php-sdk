@@ -458,7 +458,7 @@ class ErplyAPI
         return new Customers($this->getSingleData($parameters));
     }
 
-    private function getSingleData(array $parameters = [])
+    public function getSingleData(array $parameters = [])
     {
         if (!empty($this->getSessionKey())) {
             if (!empty($parameters)) {
@@ -478,7 +478,7 @@ class ErplyAPI
         }
     }
 
-    private function getBulkData(array $parameters = [])
+    public function getBulkData(array $parameters = [])
     {
         if (!empty($this->sessionKey)) {
             $responses = [];
