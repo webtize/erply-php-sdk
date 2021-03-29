@@ -91,6 +91,17 @@ class Product
     private $exciseIntermediateProduct = null;
     private $exciseOtherAlcohol = null;
     private $excisePackaging = null;
+    private $addFields = null;
+
+    private function getAddFields()
+    {
+        return $this->addFields;
+    }
+
+    public function setAddFields($addFields)
+    {
+        $this->addFields = $addFields;
+    }
 
     public function __construct($record = null)
     {
@@ -360,6 +371,10 @@ class Product
 
         if ($this->getRequestID() != null) {
             $arr_query = array_merge($arr_query, ["requestID" => $this->getRequestID()]);
+        }
+
+        if ($this->getAddFields() != null) {
+            $arr_query = array_merge($arr_query,$this->getAddFields());
         }
 
         if ($bulk) {
