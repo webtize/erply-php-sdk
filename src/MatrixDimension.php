@@ -94,7 +94,7 @@ class MatrixDimension
     }
 
     /**
-     * @param null $variations
+     * @param Variation[]|null $variations
      */
     public function setVariations($variations)
     {
