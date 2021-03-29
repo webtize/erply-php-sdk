@@ -1,0 +1,20 @@
+{
+    "name": "webtize/erply-php-sdk",
+    "description": "Erply PHP SDK",
+    "type": "library",
+    "license": [true],
+    "require": {
+        "guzzlehttp/guzzle": "7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Webtize\\ErplySDK\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "j1g4r",
+            "email": "jigar@webtize.com.au"
+        }
+    ]
+}
