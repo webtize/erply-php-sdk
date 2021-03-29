@@ -19,6 +19,7 @@ class Product
     private $supplierCode = null;
     private $groupID = null;
     private $price = null;
+    private $netPrice = null;
     private $active = null;
     private $displayedInWebshop = null;
     private $seriesID = null;
@@ -97,6 +98,9 @@ class Product
 
             if (property_exists($record, "productID")) {
                 $this->productID = $record->productID;
+            }
+            if (property_exists($record, "netPrice")) {
+                $this->netPrice = $record->netPrice;
             }
             if (property_exists($record, "name")) {
                 $this->name = $record->name;
@@ -580,7 +584,26 @@ class Product
         if ($this->getExcisePackaging() != null) {
             $arr_query = array_merge($arr_query, ["excisePackaging" => $this->getExcisePackaging()]);
         }
+        if ($this->getNetPrice() != null) {
+            $arr_query = array_merge($arr_query, ["netPrice" => $this->getNetPrice()]);
+        }
         return $arr_query;
+    }
+
+    /**
+     * @return null
+     */
+    public function getNetPrice()
+    {
+        return $this->netPrice;
+    }
+
+    /**
+     * @param null $netPrice
+     */
+    public function setNetPrice($netPrice)
+    {
+        $this->netPrice = $netPrice;
     }
 
     public function getProductID()
