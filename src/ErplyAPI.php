@@ -191,6 +191,7 @@ class ErplyAPI
         return new SaveSuppliersBulk($this->getBulkData($arr_parameters));
     }
 
+
     public function saveVateRates($records)
     {
         $arr_parameters = [];
@@ -313,6 +314,7 @@ class ErplyAPI
     {
         return new SaveSuppliers($this->getSingleData($record->getQuery(false)));
     }
+
 
     public function getSalesDocuments(array $parameters = [])
     {
@@ -452,6 +454,61 @@ class ErplyAPI
         return new Products($this->getSingleData($parameters));
     }
 
+    public function getBrands(array $parameters = [])
+    {
+        $parameters = array_merge($parameters, ['request' => 'getBrands']);
+        return new Brands($this->getSingleData($parameters));
+    }
+
+    public function saveBrand($record)
+    {
+        return new SaveBrands($this->getSingleData($record->getQuery(false)));
+    }
+
+    public function saveBrands($records)
+    {
+        $arr_parameters = [];
+        foreach ($records->getRecords() as $record) {
+            array_push($arr_parameters, $record->getQuery(true));
+        }
+        return new SaveBrandBulk($this->getBulkData($arr_parameters));
+    }
+
+    public function getMatrixDimensions(array $parameters = [])
+    {
+        $parameters = array_merge($parameters, ['request' => 'getBrands']);
+        return new MatrixDimentions($this->getSingleData($parameters));
+    }
+
+    public function saveMatrixDimension($record)
+    {
+        return new SaveMatrixDimentions($this->getSingleData($record->getQuery(false)));
+    }
+
+    public function saveMatrixDimensions($records)
+    {
+        $arr_parameters = [];
+        foreach ($records->getRecords() as $record) {
+            array_push($arr_parameters, $record->getQuery(true));
+        }
+        return new SaveMatrixDimentionsBulk($this->getBulkData($arr_parameters));
+    }
+
+
+    public function addItemToMatrixDimension($record)
+    {
+        return new SaveAddMatrixDimensions($this->getSingleData($record->getQuery(false)));
+    }
+
+    public function addItemsToMatrixDimension($records)
+    {
+        $arr_parameters = [];
+        foreach ($records->getRecords() as $record) {
+            array_push($arr_parameters, $record->getQuery(true));
+        }
+        return new SaveAddMatrixDimensionsBulk($this->getBulkData($arr_parameters));
+    }
+
     public function getCustomers(array $parameters = [])
     {
         $parameters = array_merge($parameters, ['request' => 'getCustomers']);
@@ -589,7 +646,7 @@ class ErplyAPI
 
     private function sendPostDataToErply($requestParams)
     {
-        $erplyApi = env('ERPLY_API_URL', 'https://'.$this->getCode().'.erply.com/api/');
+        $erplyApi = env('ERPLY_API_URL', 'https://' . $this->getCode() . '.erply.com/api/');
         $curl_options = [
             CURLOPT_SSLVERSION => CURL_SSLVERSION_TLSv1_2,
             CURLOPT_SSL_VERIFYHOST => 2,
