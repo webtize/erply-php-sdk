@@ -88,6 +88,7 @@ class MatrixDimension
     /**
      * @return null
      */
+
     public function getVariations()
     {
         return $this->variations;
