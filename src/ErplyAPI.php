@@ -23,198 +23,198 @@ class ErplyAPI
     public function saveAddresses($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveAddressesBulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveCampaigns($records)
+    public function saveCampaigns($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveCampaignsBulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveCurrencies($records)
+    public function saveCurrencies($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveCurrenciesBulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveCustomers($records)
+    public function saveCustomers($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveCustomersBulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveEmployees($records)
+    public function saveEmployees($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveEmployeesbulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveEvents($records)
+    public function saveEvents($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveEventsBulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveInventoryRegistrations($records)
+    public function saveInventoryRegistrations($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveInventoryRegistrationsBulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveGiftCards($records)
+    public function saveGiftCards($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveGiftCardsBulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveInventoryTransfers($records)
+    public function saveInventoryTransfers($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveInventoryTransfersBulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveInventoryWriteoffs($records)
+    public function saveInventoryWriteoffs($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveInventoryWriteoffsBulk($this->getBulkData($arr_parameters));
     }
 
-   public function savePayments($records)
+    public function savePayments($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SavePaymentsBulk($this->getBulkData($arr_parameters));
     }
 
-   public function savePriceLists($records)
+    public function savePriceLists($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SavePriceListsBulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveProducts($records)
+    public function saveProducts($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveProductsBulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveProductCatogeries($records)
+    public function saveProductCatogeries($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveProductCategoriesBulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveProductGroups($records)
+    public function saveProductGroups($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveProductGroupsBulk($this->getBulkData($arr_parameters));
     }
 
-   public function savePurchaseDocuments($records)
+    public function savePurchaseDocuments($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SavePurchaseDocumentsBulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveSalesDocuments($records)
+    public function saveSalesDocuments($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveSalesDocumentsBulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveSupplierGroups($records)
+    public function saveSupplierGroups($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveSupplierGroupBulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveSuppliers($records)
+    public function saveSuppliers($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveSuppliersBulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveVateRates($records)
+    public function saveVateRates($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveVatRatesBulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveWarehouses($records)
+    public function saveWarehouses($records)
     {
         $arr_parameters = [];
-        foreach ($records->getRecords() as $record){
+        foreach ($records->getRecords() as $record) {
             array_push($arr_parameters, $record->getQuery(true));
         }
         return new SaveWarehousesBulk($this->getBulkData($arr_parameters));
     }
 
-   public function saveWarehouse($record)
+    public function saveWarehouse($record)
     {
         return new SaveWarehouses($this->getSingleData($record->getQuery(false)));
     }
 
-   public function saveVatRate($record)
+    public function saveVatRate($record)
     {
         return new SaveVatRates($this->getSingleData($record->getQuery(false)));
     }
@@ -506,6 +506,13 @@ class ErplyAPI
         return $erply;
     }
 
+    public function getErplyInstance2($code, $username, $password)
+    {
+        $erply = new ErplyAPI();
+        $erply->verifySession2($code, $username, $password);
+        return $erply;
+    }
+
     private function sendBulk(array $parameters = [])
     {
         if (!empty($parameters)) {
@@ -529,7 +536,28 @@ class ErplyAPI
         $parameters['clientCode'] = env('ERPLY_CLIENTID');
         $parameters['username'] = env('ERPLY_USER');
         $parameters['password'] = env('ERPLY_PASS');
-        $parameters['partnerKey'] = 'ba4bf9a02d766ebd243ef297c206f35eeca262dc';
+        $parameters['version'] = '2.0';
+        $parameters['sessionLength'] = 86400;
+        $this->setCode(env('ERPLY_CLIENTID'));
+        $response = $this->sendSingle($parameters);
+        if ($response->status->errorCode == 1002) {
+            OtherAPI::print_out('Maximum api calls reached');
+            OtherAPI::print_out("Sleeping For 5 Min");
+            sleep(300);
+        }
+        if (isset($response->records[0]->sessionKey)) {
+            $this->setSessionKey($response->records[0]->sessionKey);
+        }
+        return $response;
+    }
+
+    private function verifySession2($code, $username, $password): \stdClass
+    {
+        $parameters = [];
+        $parameters['request'] = 'verifyUser';
+        $parameters['clientCode'] = $code;
+        $parameters['username'] = $username;
+        $parameters['password'] = $password;
         $parameters['version'] = '2.0';
         $parameters['sessionLength'] = 86400;
         $this->setCode(env('ERPLY_CLIENTID'));
