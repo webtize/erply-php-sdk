@@ -476,7 +476,7 @@ class ErplyAPI
 
     public function getMatrixDimensions(array $parameters = [])
     {
-        $parameters = array_merge($parameters, ['request' => 'getBrands']);
+        $parameters = array_merge($parameters, ['request' => 'getMatrixDimensions']);
         return new MatrixDimentions($this->getSingleData($parameters));
     }
 
