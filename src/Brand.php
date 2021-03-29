@@ -26,13 +26,31 @@ class Brand
             if (property_exists($record, 'lastModified')) {
                 $this->lastModified = $record->lastModified;
             }
+            if (property_exists($record, "requestID")) {
+                $this->requestID = $record->requestID;
+            }
         }
 
+    }
+
+    private $requestID = null;
+
+    public function getRequestID()
+    {
+        return $this->requestID;
+    }
+
+    public function setRequestID($requestID)
+    {
+        $this->requestID = $requestID;
     }
 
     public function getQuery($bulk)
     {
         $arr_query = [];
+        if ($this->getRequestID() != null) {
+            $arr_query = array_merge($arr_query, ["requestID" => $this->getRequestID()]);
+        }
         if ($bulk) {
             $arr_query = array_merge($arr_query, ["requestName" => "saveBrand"]);
         } else {

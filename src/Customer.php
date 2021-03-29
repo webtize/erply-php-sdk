@@ -276,13 +276,30 @@ class Customer
         if ($this->getExternalIDs() != null) {
             $arr_query = array_merge($arr_query, ["externalIDs" => $this->getExternalIDs()]);
         }
+        if ($this->getRequestID() != null) {
+            $arr_query = array_merge($arr_query, ["requestID" => $this->getRequestID()]);
+        }
         return $arr_query;
+    }
+
+    private $requestID = null;
+
+    public function getRequestID()
+    {
+        return $this->requestID;
+    }
+
+    public function setRequestID($requestID)
+    {
+        $this->requestID = $requestID;
     }
 
     public function __construct($record = null)
     {
         if ($record != null) {
-
+            if (property_exists($record, "requestID")) {
+                $this->requestID = $record->requestID;
+            }
             if (property_exists($record, "id")) {
                 $this->id = $record->id;
             }
