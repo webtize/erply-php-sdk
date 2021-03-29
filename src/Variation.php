@@ -153,5 +153,21 @@ class Variation
         $this->dimentionID = $dimentionID;
     }
 
+    /**
+     * @param null $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param null $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
 
 }
