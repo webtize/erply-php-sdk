@@ -19,10 +19,19 @@ class Status
     private $generationTime = null;
     private $recordsTotal = null;
     private $requestID = null;
+    private $errorField = null;
     private $recordsInResponse = null;
+
+    public function getErrorField()
+    {
+        return $this->errorField;
+    }
 
     public function __construct($status)
     {
+        if (property_exists($status, 'errorField')) {
+            $this->errorField = $status->errorField;
+        }
         if (property_exists($status, 'request')) {
             $this->request = $status->request;
         }
