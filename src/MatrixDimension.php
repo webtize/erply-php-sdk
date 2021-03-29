@@ -45,7 +45,7 @@ class MatrixDimension
             }
             if (property_exists($record, 'variations')) {
                 $this->variations = [];
-                foreach ($record->variations as $variation){
+                foreach ($record->variations as $variation) {
                     array_push($this->variations, new Variation($variation));
                 }
             }
@@ -86,7 +86,7 @@ class MatrixDimension
     }
 
     /**
-     * @return null
+     * @return Variation[]|null
      */
 
     public function getVariations()
