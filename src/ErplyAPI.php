@@ -349,7 +349,7 @@ class ErplyAPI
     public function getPaymentsBulk(array $parameters = [[]])
     {   $bulkParameters = [];
     foreach ($parameters as $parameter){
-        array_push($bulkParameters, array_merge(['request' => 'getPayments'], $parameter));
+        array_push($bulkParameters, array_merge(['requestName' => 'getPayments'], $parameter));
     }
         return new PaymentsBulk($this->getBulkData($bulkParameters));
     }
