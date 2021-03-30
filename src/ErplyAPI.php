@@ -347,10 +347,11 @@ class ErplyAPI
     }
 
     public function getPaymentsBulk(array $parameters = [[]])
-    {   $bulkParameters = [];
-    foreach ($parameters as $parameter){
-        array_push($bulkParameters, array_merge(['requestName' => 'getPayments'], $parameter));
-    }
+    {
+        $bulkParameters = [];
+        foreach ($parameters as $parameter) {
+            array_push($bulkParameters, array_merge(['requestName' => 'getPayments'], $parameter));
+        }
         return new PaymentsBulk($this->getBulkData($bulkParameters));
     }
 
@@ -575,17 +576,21 @@ class ErplyAPI
     }
 
     /**
-     * @return ErplyAPI|null
+     * @return ErplyAPI|string
      */
 
-    public function getErplyInstance()
+    public static function getErplyInstance()
     {
-        $erply = new ErplyAPI();
-        $erply->verifySession();
-        return $erply;
+        if (env('ERPLY_CLIENTID') != null) {
+            $erply = new ErplyAPI();
+            $erply->verifySession();
+            return $erply;
+        } else {
+            return 'Set Envirement Credentials Properly';
+        }
     }
 
-    public function getErplyInstance2($code, $username, $password)
+    public static function getErplyInstance2($code, $username, $password)
     {
         $erply = new ErplyAPI();
         $erply->verifySession2($code, $username, $password);
