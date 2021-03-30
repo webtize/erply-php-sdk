@@ -49,4 +49,12 @@ class CustomerGroups
     {
         return $this->records;
     }
+
+    /**
+     * @param CustomerGroup[]|null $records
+     */
+    public function setRecords($records)
+    {
+        $this->records = $records;
+    }
 }
