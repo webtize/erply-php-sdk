@@ -7,6 +7,7 @@
  */
 
 namespace Webtize\ErplySDK;
+require 'vendor/autoload.php';
 
 use App\Services\OtherAPI;
 use GuzzleHttp\Client;
