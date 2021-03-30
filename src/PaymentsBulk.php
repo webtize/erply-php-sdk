@@ -9,6 +9,7 @@ class PaymentsBulk
     private $status = null;
     private $requests = null;
 
+
     public function __construct($response)
     {
         $this->status = new StatusBulk($response[0]->status);
