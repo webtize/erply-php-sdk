@@ -369,13 +369,6 @@ class Product
     {
         $arr_query = [];
 
-        if ($this->getRequestID() != null) {
-            $arr_query = array_merge($arr_query, ["requestID" => $this->getRequestID()]);
-        }
-
-        if ($this->getAddFields() != null) {
-            $arr_query = array_merge($arr_query,$this->getAddFields());
-        }
 
         if ($bulk) {
             $arr_query = array_merge($arr_query, ["requestName" => "saveProduct"]);
@@ -625,6 +618,14 @@ class Product
         if ($this->getNetPrice() != null) {
             $arr_query = array_merge($arr_query, ["netPrice" => $this->getNetPrice()]);
         }
+        if ($this->getRequestID() != null) {
+            $arr_query = array_merge($arr_query, ["requestID" => $this->getRequestID()]);
+        }
+
+        if ($this->getAddFields() != null) {
+            $arr_query = array_merge($arr_query,$this->getAddFields());
+        }
+
         return $arr_query;
     }
 
