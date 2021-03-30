@@ -1,7 +1,10 @@
 # erply-php-sdk
   ## Import Library into project
 
+   ### You can use - "composer require webtize/erply-php-sdk"
+   or
    ### Add into Composer.json file in project
+   
       "repositories": [
               {
                   "type": "vcs",
