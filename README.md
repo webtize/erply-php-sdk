@@ -1,8 +1,9 @@
 # erply-php-sdk
   ## Import Library into project
 
-   ### You can use - "composer require webtize/erply-php-sdk"
-   or
+   ### You can use
+    "composer require webtize/erply-php-sdk"
+   
    ### Add into Composer.json file in project
    
       "repositories": [
