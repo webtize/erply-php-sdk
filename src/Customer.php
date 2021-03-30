@@ -78,6 +78,58 @@ class Customer
     private $homeStoreID = null;
     private $gender = null;
     private $externalIDs = null;
+    private $jobTitleID = null;
+    private $paymentDays = null;
+    private $vatNumber = null;
+
+    /**
+     * @return null
+     */
+    public function getJobTitleID()
+    {
+        return $this->jobTitleID;
+    }
+
+    /**
+     * @param null $jobTitleID
+     */
+    public function setJobTitleID($jobTitleID)
+    {
+        $this->jobTitleID = $jobTitleID;
+    }
+
+    /**
+     * @return null
+     */
+    public function getPaymentDays()
+    {
+        return $this->paymentDays;
+    }
+
+    /**
+     * @param null $paymentDays
+     */
+    public function setPaymentDays($paymentDays)
+    {
+        $this->paymentDays = $paymentDays;
+    }
+
+    /**
+     * @return null
+     */
+    public function getVatNumber()
+    {
+        return $this->vatNumber;
+    }
+
+    /**
+     * @param null $vatNumber
+     */
+    public function setVatNumber($vatNumber)
+    {
+        $this->vatNumber = $vatNumber;
+    }
+
 
     public function getQuery($bulk)
     {
@@ -89,6 +141,15 @@ class Customer
         }
         if ($this->getId() != null) {
             $arr_query = array_merge($arr_query, ["id" => $this->getId()]);
+        }
+        if ($this->getPaymentDays() != null) {
+            $arr_query = array_merge($arr_query, ["paymentDays" => $this->getPaymentDays()]);
+        }
+        if ($this->getJobTitleID() != null) {
+            $arr_query = array_merge($arr_query, ["jobTitleID" => $this->getJobTitleID()]);
+        }
+        if ($this->getVatNumber() != null) {
+            $arr_query = array_merge($arr_query, ["vatNumber" => $this->getVatNumber()]);
         }
         if ($this->getCustomerID() != null) {
             $arr_query = array_merge($arr_query, ["customerID" => $this->getCustomerID()]);
@@ -302,6 +363,15 @@ class Customer
             }
             if (property_exists($record, "id")) {
                 $this->id = $record->id;
+            }
+            if (property_exists($record, "vatNumber")) {
+                $this->vatNumber = $record->vatNumber;
+            }
+            if (property_exists($record, "jobTitleID")) {
+                $this->jobTitleID = $record->jobTitleID;
+            }
+            if (property_exists($record, "paymentDays")) {
+                $this->paymentDays = $record->paymentDays;
             }
             if (property_exists($record, "customerID")) {
                 $this->customerID = $record->customerID;
