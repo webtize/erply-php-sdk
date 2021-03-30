@@ -23,43 +23,45 @@ class CustomerGroup
     private $added = null;
     private $lastModified = null;
 
-    public function __construct($record)
+    public function __construct($record = null)
     {
-        if (property_exists($record, "clientGroupID")) {
-            $this->clientGroupID = $record->clientGroupID;
-        }
-        if (property_exists($record, "customerGroupID")) {
-            $this->customerGroupID = $record->customerGroupID;
-        }
-        if (property_exists($record, "parentID")) {
-            $this->parentID = $record->parentID;
-        }
-        if (property_exists($record, "name")) {
-            $this->name = $record->name;
-        }
-        if (property_exists($record, "pricelistID")) {
-            $this->pricelistID = $record->pricelistID;
-        }
-        if (property_exists($record, "pricelistID2")) {
-            $this->pricelistID2 = $record->pricelistID2;
-        }
-        if (property_exists($record, "pricelistID3")) {
-            $this->pricelistID3 = $record->pricelistID3;
-        }
-        if (property_exists($record, "pricelistID4")) {
-            $this->pricelistID4 = $record->pricelistID4;
-        }
-        if (property_exists($record, "pricelistID5")) {
-            $this->pricelistID5 = $record->pricelistID5;
-        }
-        if (property_exists($record, "added")) {
-            $this->added = $record->added;
-        }
-        if (property_exists($record, "lastModified")) {
-            $this->lastModified = $record->lastModified;
-        }
-        if (property_exists($record, "requestID")) {
-            $this->requestID = $record->requestID;
+        if ($record != null) {
+            if (property_exists($record, "clientGroupID")) {
+                $this->clientGroupID = $record->clientGroupID;
+            }
+            if (property_exists($record, "customerGroupID")) {
+                $this->customerGroupID = $record->customerGroupID;
+            }
+            if (property_exists($record, "parentID")) {
+                $this->parentID = $record->parentID;
+            }
+            if (property_exists($record, "name")) {
+                $this->name = $record->name;
+            }
+            if (property_exists($record, "pricelistID")) {
+                $this->pricelistID = $record->pricelistID;
+            }
+            if (property_exists($record, "pricelistID2")) {
+                $this->pricelistID2 = $record->pricelistID2;
+            }
+            if (property_exists($record, "pricelistID3")) {
+                $this->pricelistID3 = $record->pricelistID3;
+            }
+            if (property_exists($record, "pricelistID4")) {
+                $this->pricelistID4 = $record->pricelistID4;
+            }
+            if (property_exists($record, "pricelistID5")) {
+                $this->pricelistID5 = $record->pricelistID5;
+            }
+            if (property_exists($record, "added")) {
+                $this->added = $record->added;
+            }
+            if (property_exists($record, "lastModified")) {
+                $this->lastModified = $record->lastModified;
+            }
+            if (property_exists($record, "requestID")) {
+                $this->requestID = $record->requestID;
+            }
         }
     }
 
