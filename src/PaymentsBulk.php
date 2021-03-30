@@ -21,11 +21,6 @@ class PaymentsBulk
     }
 
 
-    /**
-     * Gets Bulk Status
-     *
-     * @return StatusBulk
-     */
     public function getStatus()
     {
         return $this->status;
