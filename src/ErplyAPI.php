@@ -424,6 +424,20 @@ class ErplyAPI
         return new CustomerGroups($this->getSingleData($parameters));
     }
 
+    public function saveCustomerGroup($record)
+    {
+        return new SaveCustomerGroups($this->getSingleData($record->getQuery(false)));
+    }
+
+    public function saveCustomerGroups($records)
+    {
+        $arr_parameters = [];
+        foreach ($records->getRecords() as $record) {
+            array_push($arr_parameters, $record->getQuery(true));
+        }
+        return new SaveCustomerGroupsBulk($this->getBulkData($arr_parameters));
+    }
+
     public function getAddresses(array $parameters = [])
     {
         $parameters = array_merge($parameters, ['request' => 'getAddresses']);

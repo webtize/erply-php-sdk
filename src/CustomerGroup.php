@@ -58,52 +58,44 @@ class CustomerGroup
         if (property_exists($record, "lastModified")) {
             $this->lastModified = $record->lastModified;
         }
-    }
-    /*
-        public function getQuery($bulk)
-        {
-            $arr_query = [];
-            if ($bulk) {
-                array_merge($arr_query, ["requestName" => ""]);
-            } else {
-                array_merge($arr_query, ["request" => ""]);
-            }
-            if ($this->getClientGroupID() != null) {
-                array_merge($arr_query, ["clientGroupID" => $this->getClientGroupID()]);
-            }
-            if ($this->getCustomerGroupID() != null) {
-                array_merge($arr_query, ["customerGroupID" => $this->getCustomerGroupID()]);
-            }
-            if ($this->getParentID() != null) {
-                array_merge($arr_query, ["parentID" => $this->getParentID()]);
-            }
-            if ($this->getName() != null) {
-                array_merge($arr_query, ["name" => $this->getName()]);
-            }
-            if ($this->getPricelistID() != null) {
-                array_merge($arr_query, ["pricelistID" => $this->getPricelistID()]);
-            }
-            if ($this->getPricelistID2() != null) {
-                array_merge($arr_query, ["pricelistID2" => $this->getPricelistID2()]);
-            }
-            if ($this->getPricelistID3() != null) {
-                array_merge($arr_query, ["pricelistID3" => $this->getPricelistID3()]);
-            }
-            if ($this->getPricelistID4() != null) {
-                array_merge($arr_query, ["pricelistID4" => $this->getPricelistID4()]);
-            }
-            if ($this->getPricelistID5() != null) {
-                array_merge($arr_query, ["pricelistID5" => $this->getPricelistID5()]);
-            }
-            if ($this->getAdded() != null) {
-                array_merge($arr_query, ["added" => $this->getAdded()]);
-            }
-            if ($this->getLastModified() != null) {
-                array_merge($arr_query, ["lastModified" => $this->getLastModified()]);
-            }
-            return $arr_query;
+        if (property_exists($record, "requestID")) {
+            $this->requestID = $record->requestID;
         }
-    */
+    }
+
+    private $requestID = null;
+
+    public function getRequestID()
+    {
+        return $this->requestID;
+    }
+
+    public function setRequestID($requestID)
+    {
+        $this->requestID = $requestID;
+    }
+
+    public function getQuery($bulk)
+    {
+        $arr_query = [];
+        if ($bulk) {
+            array_merge($arr_query, ["requestName" => "saveCustomerGroup"]);
+        } else {
+            array_merge($arr_query, ["request" => "saveCustomerGroup"]);
+        }
+        if ($this->getRequestID() != null) {
+            $arr_query = array_merge($arr_query, ["requestID" => $this->getRequestID()]);
+        }
+
+        if ($this->getCustomerGroupID() != null) {
+            array_merge($arr_query, ["customerGroupID" => $this->getCustomerGroupID()]);
+        }
+        if ($this->getName() != null) {
+            array_merge($arr_query, ["name" => $this->getName()]);
+        }
+        return $arr_query;
+    }
+
     public function getClientGroupID()
     {
         return $this->clientGroupID;

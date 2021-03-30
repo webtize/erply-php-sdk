@@ -368,8 +368,6 @@ class Product
     public function getQuery($bulk)
     {
         $arr_query = [];
-
-
         if ($bulk) {
             $arr_query = array_merge($arr_query, ["requestName" => "saveProduct"]);
         } else {
