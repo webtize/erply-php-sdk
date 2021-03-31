@@ -121,7 +121,7 @@
             }
         }
         
-  ####. YOU CAN MAKE YOUR OWN QUERIES and SEnd FROM
+  ### YOU CAN MAKE YOUR OWN QUERIES and SEnd FROM
           
           $erply->getSingleData([
             'request'=>''
