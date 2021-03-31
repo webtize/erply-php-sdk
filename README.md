@@ -74,7 +74,7 @@
                     }
                  }
              }
- ### Examples Saving data from Erply
+ ### Example Saving data on Erply
     $arr_customers = [];
         foreach ($this->customers as $person) {
             $customer = new Customer();
@@ -100,6 +100,26 @@
             foreach ($response->getRequests() as $request) {
                 if ($request->getStatus()->getResponseStatus() == 'ok') {
                     print_r($request->getRecords());
+                }
+            }
+        }
+
+  ### Fetching Data in Bulk from Erply
+      $arr_payments_query = [];  
+      foreach ($this->getDocs() as $doc) {
+            if ($this->checkLogRecord($doc->getId())) {
+                array_push($arr_payments_query, ['requestID' => $doc->getId(), 'documentID' => $doc->getId()]);
+                $payment_arr[$doc->getId()] = [];
+            }
+        }
+
+        $response = $this->erply->getPaymentsBulk($arr_payments_query);
+        if ($response->getStatus()->getResponseStatus() == 'ok') {
+            foreach ($response->getRequests() as $request) {
+                if ($request->getStatus()->getResponseStatus() == 'ok') {
+                    foreach ($request->getRecords() as $record) {
+                        print_r($record);
+                    }
                 }
             }
         }
