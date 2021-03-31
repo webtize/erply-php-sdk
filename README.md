@@ -120,3 +120,14 @@
                 }
             }
         }
+        
+  ####. YOU CAN MAKE YOUR OWN QUERIES and SEnd FROM
+          
+          $erply->getSingleData([
+            'request'=>''
+          ]);
+          $erply->getBulkData([
+            ['requestName'=>''],
+            ['requestName'=>''],
+            ['requestName'=>'']
+          ]);
