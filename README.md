@@ -107,9 +107,7 @@
   ### Fetching Data in Bulk from Erply
       $arr_payments_query = [];  
       foreach ($this->getDocs() as $doc) {
-            if ($this->checkLogRecord($doc->getId())) {
-                array_push($arr_payments_query, ['requestID' => $doc->getId(), 'documentID' => $doc->getId()]);
-            }
+          array_push($arr_payments_query, ['requestID' => $doc->getId(), 'documentID' => $doc->getId()]);
         }
 
         $response = $this->erply->getPaymentsBulk($arr_payments_query);
