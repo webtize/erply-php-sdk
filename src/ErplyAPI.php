@@ -364,6 +364,15 @@ class ErplyAPI
         return new CustomersBulk($this->getBulkData($bulkParameters));
     }
 
+    public function getPriceListBulk(array $parameters = [[]])
+    {
+        $bulkParameters = [];
+        foreach ($parameters as $parameter) {
+            array_push($bulkParameters, array_merge(['requestName' => 'getPriceLists'], $parameter));
+        }
+        return new PriceListBulk($this->getBulkData($bulkParameters));
+    }
+
     public function getInventoryWriteOffs(array $parameters = [])
     {
         $parameters = array_merge($parameters, ['request' => 'getInventoryWriteOffs']);
