@@ -1,7 +1,11 @@
 # erply-php-sdk
   ## Import Library into project
 
+   ### You can use
+    "composer require webtize/erply-php-sdk"
+   
    ### Add into Composer.json file in project
+   
       "repositories": [
               {
                   "type": "vcs",
@@ -70,7 +74,7 @@
                     }
                  }
              }
- ### Examples Saving data from Erply
+ ### Example Saving data on Erply
     $arr_customers = [];
         foreach ($this->customers as $person) {
             $customer = new Customer();
@@ -99,3 +103,31 @@
                 }
             }
         }
+
+  ### Fetching Data in Bulk from Erply
+      $arr_payments_query = [];  
+      foreach ($this->getDocs() as $doc) {
+          array_push($arr_payments_query, ['requestID' => $doc->getId(), 'documentID' => $doc->getId()]);
+        }
+
+        $response = $this->erply->getPaymentsBulk($arr_payments_query);
+        if ($response->getStatus()->getResponseStatus() == 'ok') {
+            foreach ($response->getRequests() as $request) {
+                if ($request->getStatus()->getResponseStatus() == 'ok') {
+                    foreach ($request->getRecords() as $record) {
+                        print_r($record);
+                    }
+                }
+            }
+        }
+        
+  ### YOU CAN MAKE YOUR OWN QUERIES and SEnd FROM
+          
+          $erply->getSingleData([
+            'request'=>''
+          ]);
+          $erply->getBulkData([
+            ['requestName'=>''],
+            ['requestName'=>''],
+            ['requestName'=>'']
+          ]);
