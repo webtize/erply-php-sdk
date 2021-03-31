@@ -109,7 +109,6 @@
       foreach ($this->getDocs() as $doc) {
             if ($this->checkLogRecord($doc->getId())) {
                 array_push($arr_payments_query, ['requestID' => $doc->getId(), 'documentID' => $doc->getId()]);
-                $payment_arr[$doc->getId()] = [];
             }
         }
 
