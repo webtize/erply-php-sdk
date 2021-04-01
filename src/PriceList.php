@@ -23,6 +23,7 @@ class PriceList
     private $pricelistRules = null;
     private $addFields = null;
 
+
     public function setAddFields($addFields)
     {
         $this->addFields = $addFields;
