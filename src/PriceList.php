@@ -21,6 +21,18 @@ class PriceList
     private $lastModified = null;
     private $lastModifiedByUserName = null;
     private $pricelistRules = null;
+    private $addFields = null;
+
+    public function setAddFields($addFields)
+    {
+        $this->addFields = $addFields;
+    }
+
+    private function getAddFields()
+    {
+        return $this->addFields;
+    }
+
 
     public function getQuery($bulk)
     {
@@ -38,6 +50,11 @@ class PriceList
         }
         if ($this->getStartDate() != null) {
             $arr_query = array_merge($arr_query, ["startDate" => $this->getStartDate()]);
+        }
+        if ($this->getAddFields() != null) {
+            foreach ($this->getAddFields() as $field) {
+                $arr_query = array_merge($arr_query, $field);
+            }
         }
         if ($this->getEndDate() != null) {
             $arr_query = array_merge($arr_query, ["endDate" => $this->getEndDate()]);
