@@ -729,7 +729,7 @@ class ErplyAPI
         return $response;
     }
 
-    private function getCode()
+    public function getCode()
     {
         return $this->code;
     }
@@ -769,7 +769,7 @@ class ErplyAPI
         $this->parameters = $parameters;
     }
 
-    private function getSessionKey()
+    public function getSessionKey()
     {
         return $this->sessionKey;
     }
@@ -777,5 +777,14 @@ class ErplyAPI
     private function setSessionKey($sessionKey): void
     {
         $this->sessionKey = $sessionKey;
+    }
+
+    public function getServiceEndpoints(): \stdClass
+    {
+        $parameters = [];
+        $parameters['request'] = 'getServiceEndpoints';
+        $response = $this->sendSingle($parameters);
+        #print_r($response);
+        return $response;
     }
 }
