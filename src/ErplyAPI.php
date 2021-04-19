@@ -619,6 +619,7 @@ class ErplyAPI
 
     public static function getErplyInstance2($code, $username, $password)
     {
+
         $erply = new ErplyAPI();
         $erply->verifySession2($code, $username, $password);
         return $erply;
@@ -671,7 +672,7 @@ class ErplyAPI
         $parameters['password'] = $password;
         $parameters['version'] = '2.0';
         $parameters['sessionLength'] = 86400;
-        $this->setCode(env('ERPLY_CLIENTID'));
+        $this->setCode($code);
         $response = $this->sendSingle($parameters);
         if ($response->status->errorCode == 1002) {
             print_r('Maximum api calls reached');
