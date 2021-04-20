@@ -101,6 +101,7 @@ class Product
     private $exciseOtherAlcohol = null;
     private $excisePackaging = null;
     private $addFields = null;
+    private $erplyObject = null;
 
     private function getAddFields()
     {
@@ -115,6 +116,7 @@ class Product
     public function __construct($record = null)
     {
         if ($record != null) {
+            $this->erplyObject = $record;
 
             if (property_exists($record, "productID")) {
                 $this->productID = $record->productID;
@@ -660,7 +662,7 @@ class Product
         }
 
         if ($this->getAddFields() != null) {
-            $arr_query = array_merge($arr_query,$this->getAddFields());
+            $arr_query = array_merge($arr_query, $this->getAddFields());
         }
 
         return $arr_query;
@@ -1556,4 +1558,8 @@ class Product
         $this->productPackages = $productPackages;
     }
 
+    public function getErplyObject()
+    {
+        return $this->erplyObject;
+    }
 }
