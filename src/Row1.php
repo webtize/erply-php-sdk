@@ -12,6 +12,7 @@ class Row1
     public $serviceID = null;
     public $itemName = null;
     public $code = null;
+    public $vatrateID = null;
     public $amount = null;
     public $price = null;
     public $discount = null;
@@ -65,6 +66,9 @@ class Row1
         }
         if (property_exists($record, 'price')) {
             $this->price = $record->price;
+        }
+        if (property_exists($record, 'vatrateID')) {
+            $this->vatrateID = $record->vatrateID;
         }
         if (property_exists($record, 'discount')) {
             $this->discount = $record->discount;
@@ -141,6 +145,14 @@ class Row1
         if (property_exists($record, 'jdoc')) {
             $this->jdoc = $record->jdoc;
         }
+    }
+
+    /**
+     * @return null
+     */
+    public function getVatrateID()
+    {
+        return $this->vatrateID;
     }
 
 
