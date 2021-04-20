@@ -74,13 +74,22 @@ class Product
     private $rewardPointsNotAllowed = null;
     private $reorderMultiple = null;
     private $packagingType = null;
+    private $priceListPrice = null;
+    private $priceListPriceWithVat = null;
     private $backbarCharges = null;
     private $lengthInMinutes = null;
     private $setupTimeInMinutes = null;
     private $cleanupTimeInMinutes = null;
     private $walkInService = null;
     private $longAttributes = null;
+    private $relatedFiles = null;
+    private $variationDescription = null;
+    private $parentProductID = null;
     private $type = null;
+    private $FIFOCost = null;
+    private $purchasePrice = null;
+    private $warehouses = null;
+    private $productPackages = null;
     private $registryNumber = null;
     private $alcoholPercentage = null;
     private $batches = null;
@@ -347,6 +356,33 @@ class Product
             if (property_exists($record, "excisePackaging")) {
                 $this->excisePackaging = $record->excisePackaging;
             }
+            if (property_exists($record, "parentProductID")) {
+                $this->parentProductID = $record->parentProductID;
+            }
+            if (property_exists($record, "FIFOCost")) {
+                $this->FIFOCost = $record->FIFOCost;
+            }
+            if (property_exists($record, "priceListPriceWithVat")) {
+                $this->priceListPriceWithVat = $record->priceListPriceWithVat;
+            }
+            if (property_exists($record, "purchasePrice")) {
+                $this->purchasePrice = $record->purchasePrice;
+            }
+            if (property_exists($record, "productPackages")) {
+                $this->productPackages = $record->productPackages;
+            }
+            if (property_exists($record, "priceListPrice")) {
+                $this->priceListPrice = $record->priceListPrice;
+            }
+            if (property_exists($record, "relatedFiles")) {
+                $this->relatedFiles = $record->relatedFiles;
+            }
+            if (property_exists($record, "variationDescription")) {
+                $this->variationDescription = $record->variationDescription;
+            }
+            if (property_exists($record, "warehouses")) {
+                $this->warehouses = $record->warehouses;
+            }
             if (property_exists($record, "requestID")) {
                 $this->requestID = $record->requestID;
             }
@@ -610,6 +646,9 @@ class Product
         if ($this->getExciseOtherAlcohol() != null) {
             $arr_query = array_merge($arr_query, ["exciseOtherAlcohol" => $this->getExciseOtherAlcohol()]);
         }
+        if ($this->getParentProductID() != null) {
+            $arr_query = array_merge($arr_query, ["parentProductID" => $this->getParentProductID()]);
+        }
         if ($this->getExcisePackaging() != null) {
             $arr_query = array_merge($arr_query, ["excisePackaging" => $this->getExcisePackaging()]);
         }
@@ -627,17 +666,11 @@ class Product
         return $arr_query;
     }
 
-    /**
-     * @return null
-     */
     public function getNetPrice()
     {
         return $this->netPrice;
     }
 
-    /**
-     * @param null $netPrice
-     */
     public function setNetPrice($netPrice)
     {
         $this->netPrice = $netPrice;
@@ -1432,4 +1465,95 @@ class Product
     {
         $this->excisePackaging = $excisePackaging;
     }
+
+    public function getPriceListPrice()
+    {
+        return $this->priceListPrice;
+    }
+
+    public function setPriceListPrice($priceListPrice): void
+    {
+        $this->priceListPrice = $priceListPrice;
+    }
+
+    public function getPriceListPriceWithVat()
+    {
+        return $this->priceListPriceWithVat;
+    }
+
+    public function setPriceListPriceWithVat($priceListPriceWithVat): void
+    {
+        $this->priceListPriceWithVat = $priceListPriceWithVat;
+    }
+
+    public function getRelatedFiles()
+    {
+        return $this->relatedFiles;
+    }
+
+    public function setRelatedFiles($relatedFiles): void
+    {
+        $this->relatedFiles = $relatedFiles;
+    }
+
+    public function getVariationDescription()
+    {
+        return $this->variationDescription;
+    }
+
+    public function setVariationDescription($variationDescription): void
+    {
+        $this->variationDescription = $variationDescription;
+    }
+
+    public function getParentProductID()
+    {
+        return $this->parentProductID;
+    }
+
+    public function setParentProductID($parentProductID): void
+    {
+        $this->parentProductID = $parentProductID;
+    }
+
+    public function getFIFOCost()
+    {
+        return $this->FIFOCost;
+    }
+
+    public function setFIFOCost($FIFOCost): void
+    {
+        $this->FIFOCost = $FIFOCost;
+    }
+
+    public function getPurchasePrice()
+    {
+        return $this->purchasePrice;
+    }
+
+    public function setPurchasePrice($purchasePrice): void
+    {
+        $this->purchasePrice = $purchasePrice;
+    }
+
+    public function getWarehouses()
+    {
+        return $this->warehouses;
+    }
+
+    public function setWarehouses($warehouses): void
+    {
+        $this->warehouses = $warehouses;
+    }
+
+    public function getProductPackages()
+    {
+        return $this->productPackages;
+    }
+
+    public function setProductPackages($productPackages): void
+    {
+        $this->productPackages = $productPackages;
+    }
+
 }
