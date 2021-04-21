@@ -52,12 +52,19 @@ class PurchaseDocument
     private $rounding = null;
     private $netTotal = null;
     private $vatTotal = null;
+    private $row = null;
     private $total = null;
     private $netTotalsByTaxRate = null;
     private $vatTotalsByTaxRate = null;
     private $invoiceLink = null;
     private $baseToDocuments = null;
     private $baseDocuments = null;
+
+    public function getRows()
+    {
+        return $this->rows;
+    }
+
 
     public function getQuery($bulk)
     {
@@ -252,6 +259,12 @@ class PurchaseDocument
             }
             if (property_exists($record, "regnumber")) {
                 $this->regnumber = $record->regnumber;
+            }
+            if (property_exists($record, "rows")) {
+                $this->rows = [];
+                foreach ($record->rows as $row) {
+                    array_push($this->rows, new Row1($row));
+                }
             }
             if (property_exists($record, "date")) {
                 $this->date = $record->date;
