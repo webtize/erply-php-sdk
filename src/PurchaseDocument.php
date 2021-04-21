@@ -574,6 +574,7 @@ class PurchaseDocument
         return $this->supplierID2;
     }
 
+
     public function setSupplierID2($supplierID2)
     {
         $this->supplierID2 = $supplierID2;
