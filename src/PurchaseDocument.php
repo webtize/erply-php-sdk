@@ -52,7 +52,7 @@ class PurchaseDocument
     private $rounding = null;
     private $netTotal = null;
     private $vatTotal = null;
-    private $row = null;
+    private $rows = null;
     private $total = null;
     private $netTotalsByTaxRate = null;
     private $vatTotalsByTaxRate = null;
