@@ -641,7 +641,7 @@ class ErplyAPI
         return $response;
     }
 
-    private function verifySession(): \stdClass
+    public function verifySession(): \stdClass
     {
         $parameters = [];
         $parameters['request'] = 'verifyUser';
@@ -663,7 +663,7 @@ class ErplyAPI
         return $response;
     }
 
-    private function verifySession2($code, $username, $password): \stdClass
+    public function verifySession2($code, $username, $password): \stdClass
     {
         $parameters = [];
         $parameters['request'] = 'verifyUser';
