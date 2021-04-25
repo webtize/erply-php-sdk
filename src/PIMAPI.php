@@ -4,7 +4,7 @@
 namespace Webtize\ErplySDK;
 
 use GuzzleHttp\Client;
-require 'vendor/autoload.php';
+#require 'vendor/autoload.php';
 
 class PIMAPI
 {
