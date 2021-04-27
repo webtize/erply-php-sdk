@@ -34,13 +34,13 @@
   ##### gettting Instance
 
     $erply = ErplyAPI::getErplyInstance();
-    $pim = PIMAPI::getErplyInstance();
-    $reportApi = ReportAPI::getErplyInstance();
+    $pim = PIMAPI::getPIMInstance();
+    $reportApi = ReportAPI::getReportInstance();
 
   #### Creating Instance for multiple account  without eviroment variables
     $erply = ErplyAPI::getErplyInstance2($code, $username, $password);
-    $pim = PIMAPI::getErplyInstance2($code, $username, $password);
-    $reportAPI = ReportAPI::getErplyInstance2($code, $username, $password);
+    $pim = PIMAPI::getPIMInstance2($code, $username, $password);
+    $reportAPI = ReportAPI::getReportInstance2($code, $username, $password);
 
   ### Examples Fetching data from Erply
         ### Product Group Ids ###
