@@ -81,6 +81,34 @@ class Customer
     private $jobTitleID = null;
     private $paymentDays = null;
     private $vatNumber = null;
+    private $priceListID = null;
+    private $priceListID2 = null;
+    private $priceListID3 = null;
+
+    /**
+     * @return null
+     */
+    public function getPriceListID()
+    {
+        return $this->priceListID;
+    }
+
+    /**
+     * @return null
+     */
+    public function getPriceListID2()
+    {
+        return $this->priceListID2;
+    }
+
+    /**
+     * @return null
+     */
+    public function getPriceListID3()
+    {
+        return $this->priceListID3;
+    }
+
 
     /**
      * @return null
@@ -337,6 +365,15 @@ class Customer
         if ($this->getExternalIDs() != null) {
             $arr_query = array_merge($arr_query, ["externalIDs" => $this->getExternalIDs()]);
         }
+        if ($this->getPriceListID() != null) {
+            $arr_query = array_merge($arr_query, ["priceListID" => $this->getPriceListID()]);
+        }
+        if ($this->getPriceListID2() != null) {
+            $arr_query = array_merge($arr_query, ["priceListID2" => $this->getPriceListID2()]);
+        }
+        if ($this->getPriceListID3() != null) {
+            $arr_query = array_merge($arr_query, ["priceListID3" => $this->getPriceListID3()]);
+        }
         if ($this->getRequestID() != null) {
             $arr_query = array_merge($arr_query, ["requestID" => $this->getRequestID()]);
         }
@@ -474,6 +511,15 @@ class Customer
             }
             if (property_exists($record, "street")) {
                 $this->street = $record->street;
+            }
+            if (property_exists($record, "priceListID")) {
+                $this->priceListID = $record->priceListID;
+            }
+            if (property_exists($record, "priceListID2")) {
+                $this->priceListID2 = $record->priceListID2;
+            }
+            if (property_exists($record, "priceListID3")) {
+                $this->priceListID3 = $record->priceListID3;
             }
             if (property_exists($record, "address2")) {
                 $this->address2 = $record->address2;
