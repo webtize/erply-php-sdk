@@ -382,6 +382,24 @@ class ErplyAPI
         return new PriceListBulk($this->getBulkData($bulkParameters));
     }
 
+    public function getProductPriceBulk(array $parameters = [[]])
+    {
+        $bulkParameters = [];
+        foreach ($parameters as $parameter) {
+            array_push($bulkParameters, array_merge(['requestName' => 'getProductPrices'], $parameter));
+        }
+        return new ProductPriceBulk($this->getBulkData($bulkParameters));
+    }
+
+    public function getProductStockBulk(array $parameters = [[]])
+    {
+        $bulkParameters = [];
+        foreach ($parameters as $parameter) {
+            array_push($bulkParameters, array_merge(['requestName' => 'getProductStock'], $parameter));
+        }
+        return new ProductStockBulk($this->getBulkData($bulkParameters));
+    }
+
     public function getInventoryWriteOffs(array $parameters = [])
     {
         $parameters = array_merge($parameters, ['request' => 'getInventoryWriteOffs']);
@@ -410,6 +428,18 @@ class ErplyAPI
     {
         $parameters = array_merge($parameters, ['request' => 'getWarehouses']);
         return new Warehouses($this->getSingleData($parameters));
+    }
+
+    public function getProductPrices(array $parameters = [])
+    {
+        $parameters = array_merge($parameters, ['request' => 'getProductPrices']);
+        return new ProductPrices($this->getSingleData($parameters));
+    }
+
+    public function getProductStocks(array $parameters = [])
+    {
+        $parameters = array_merge($parameters, ['request' => 'getProductStock']);
+        return new ProductStocks($this->getSingleData($parameters));
     }
 
     public function getProductCategories(array $parameters = [])
