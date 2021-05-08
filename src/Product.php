@@ -102,6 +102,13 @@ class Product
     private $excisePackaging = null;
     private $addFields = null;
     private $erplyObject = null;
+    private $productVariations = null;
+
+    public function getProductVariations()
+    {
+        return $this->productVariations;
+    }
+
 
     private function getAddFields()
     {
@@ -120,6 +127,9 @@ class Product
 
             if (property_exists($record, "productID")) {
                 $this->productID = $record->productID;
+            }
+            if (property_exists($record, "productVariations")) {
+                $this->productVariations = $record->productVariations;
             }
             if (property_exists($record, "netPrice")) {
                 $this->netPrice = $record->netPrice;
