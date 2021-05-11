@@ -58,7 +58,7 @@ class Product
     private $lastModified = null;
     private $lastModifiedByUsername = null;
     private $vatrate = null;
-    private $priceWithVat = null;
+    private $priceWithVAT = null;
     private $unitName = null;
     private $brandName = null;
     private $seriesName = null;
@@ -269,8 +269,8 @@ class Product
             if (property_exists($record, "vatrate")) {
                 $this->vatrate = $record->vatrate;
             }
-            if (property_exists($record, "priceWithVat")) {
-                $this->priceWithVat = $record->priceWithVat;
+            if (property_exists($record, "priceWithVAT")) {
+                $this->priceWithVAT = $record->priceWithVAT;
             }
             if (property_exists($record, "unitName")) {
                 $this->unitName = $record->unitName;
@@ -562,8 +562,8 @@ class Product
         if ($this->getVatrate() != null) {
             $arr_query = array_merge($arr_query, ["vatrate" => $this->getVatrate()]);
         }
-        if ($this->getPriceWithVat() != null) {
-            $arr_query = array_merge($arr_query, ["priceWithVat" => $this->getPriceWithVat()]);
+        if ($this->getPriceWithVAT() != null) {
+            $arr_query = array_merge($arr_query, ["priceWithVAT" => $this->getPriceWithVAT()]);
         }
         if ($this->getUnitName() != null) {
             $arr_query = array_merge($arr_query, ["unitName" => $this->getUnitName()]);
@@ -1148,14 +1148,14 @@ class Product
         $this->vatrate = $vatrate;
     }
 
-    public function getPriceWithVat()
+    public function getPriceWithVAT()
     {
-        return $this->priceWithVat;
+        return $this->priceWithVAT;
     }
 
-    public function setPriceWithVat($priceWithVat)
+    public function setPriceWithVAT($priceWithVAT)
     {
-        $this->priceWithVat = $priceWithVat;
+        $this->priceWithVAT = $priceWithVAT;
     }
 
     public function getUnitName()
