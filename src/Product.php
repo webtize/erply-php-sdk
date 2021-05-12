@@ -269,8 +269,8 @@ class Product
             if (property_exists($record, "vatrate")) {
                 $this->vatrate = $record->vatrate;
             }
-            if (property_exists($record, "priceWithVAT")) {
-                $this->priceWithVAT = $record->priceWithVAT;
+            if (property_exists($record, "priceWithVat")) {
+                $this->priceWithVAT = $record->priceWithVat;
             }
             if (property_exists($record, "unitName")) {
                 $this->unitName = $record->unitName;
@@ -479,7 +479,7 @@ class Product
             $arr_query = array_merge($arr_query, ["nonRefundable" => $this->getNonRefundable()]);
         }
         if ($this->getManufacturerName() != null) {
-            array_merge($arr_query, ["manufacturerName" => $this->getManufacturerName()]);
+            $arr_query = array_merge($arr_query, ["manufacturerName" => $this->getManufacturerName()]);
         }
         if ($this->getPriorityGroupID() != null) {
             $arr_query = array_merge($arr_query, ["priorityGroupID" => $this->getPriorityGroupID()]);
