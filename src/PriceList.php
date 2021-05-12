@@ -230,6 +230,12 @@ class PriceList
         $this->lastModifiedByUserName = $lastModifiedByUserName;
     }
 
+    /**
+     * Gets Response
+     *
+     * @return PriceListRule[]|null
+     */
+
     public function getPricelistRules()
     {
         return $this->pricelistRules;
