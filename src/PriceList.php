@@ -130,8 +130,12 @@ class PriceList
             if (property_exists($record, "lastModifiedByUserName")) {
                 $this->lastModifiedByUserName = $record->lastModifiedByUserName;
             }
+            $arr_prices = [];
             if (property_exists($record, "pricelistRules")) {
-                $this->pricelistRules = $record->pricelistRules;
+                foreach ($record->pricelistRules as $pricelistRule) {
+                    array_push($arr_prices, new PriceListRule($pricelistRule));
+                }
+                $this->pricelistRules = $arr_prices;
             }
         }
     }
