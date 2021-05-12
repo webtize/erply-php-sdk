@@ -13,14 +13,24 @@ class PriceListRule
     private $id = null;
     private $ruleID = null;
 
-    public function __construct($records = null)
+    public function __construct($record = null)
     {
-        if ($records != null) {
-            $this->type = $records->type;
-            $this->price = $records->price;
-            $this->priceWithVat = $records->priceWithVat;
-            $this->id = $records->id;
-            $this->ruleID = $records->ruleID;
+        if ($record != null) {
+            if (property_exists($record, "type")) {
+                $this->type = $record->type;
+            }
+            if (property_exists($record, "price")) {
+                $this->price = $record->price;
+            }
+            if (property_exists($record, "priceWithVat")) {
+                $this->priceWithVat = $record->priceWithVat;
+            }
+            if (property_exists($record, "id")) {
+                $this->id = $record->id;
+            }
+            if (property_exists($record, "ruleID")) {
+                $this->ruleID = $record->ruleID;
+            }
         }
     }
 
