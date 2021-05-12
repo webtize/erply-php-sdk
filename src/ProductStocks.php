@@ -38,7 +38,7 @@ class ProductStocks
     }
 
     /**
-     * @return PriceList[]|null
+     * @return ProductStock[]|null
      */
     public function getRecords()
     {
