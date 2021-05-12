@@ -17,7 +17,7 @@ class ProductStocks
             }
 
             if (property_exists($response, 'records')) {
-                if ($this->status->getRequest() == 'getProductPrices' || $this->status->getRequestName() == 'getProductPrices') {
+                if ($this->status->getRequest() == 'getProductStock' || $this->status->getRequestName() == 'getProductStock') {
                     $arr_records = [];
                     foreach ($response->records as $record) {
                         array_push($arr_records, new ProductStock($record));
