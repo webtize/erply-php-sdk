@@ -103,6 +103,20 @@ class Product
     private $addFields = null;
     private $erplyObject = null;
     private $productVariations = null;
+    private $images = null;
+
+
+    /**
+     * Gets Response
+     *
+     * @return ProductPicture[]|null
+     */
+
+    public function getImages()
+    {
+        return $this->images;
+    }
+
 
     public function getProductVariations()
     {
@@ -397,6 +411,14 @@ class Product
             }
             if (property_exists($record, "requestID")) {
                 $this->requestID = $record->requestID;
+            }
+
+            if (property_exists($record, "images")) {
+                $arr_images = [];
+                foreach ($record->images as $image) {
+                    array_push($arr_images, new ProductPicture($image));
+                }
+                $this->images = $arr_images;
             }
         }
     }
