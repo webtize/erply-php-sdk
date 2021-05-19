@@ -28,7 +28,7 @@ class ProductPicture
                 $this->productPictureID = $record->productPictureID;
             }
             if (property_exists($record, "productID")) {
-                $this->productID = $record->productPictureID;
+                $this->productID = $record->productID;
             }
             if (property_exists($record, "name")) {
                 $this->name = $record->name;
