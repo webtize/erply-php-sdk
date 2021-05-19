@@ -38,7 +38,7 @@ class ProductPictures
     }
 
     /**
-     * @return ProductGroup[]|null
+     * @return ProductPicture[]|null
      */
     public function getRecords()
     {
