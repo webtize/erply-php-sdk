@@ -400,10 +400,25 @@ class ErplyAPI
         return new ProductStockBulk($this->getBulkData($bulkParameters));
     }
 
+    public function getProductPicturesBulk(array $parameters = [[]])
+    {
+        $bulkParameters = [];
+        foreach ($parameters as $parameter) {
+            array_push($bulkParameters, array_merge(['requestName' => 'getProductPictures'], $parameter));
+        }
+        return new ProductPicturesBulk($this->getBulkData($bulkParameters));
+    }
+
     public function getInventoryWriteOffs(array $parameters = [])
     {
         $parameters = array_merge($parameters, ['request' => 'getInventoryWriteOffs']);
         return new InventoryWriteoffs($this->getSingleData($parameters));
+    }
+
+    public function getProductPictures(array $parameters = [])
+    {
+        $parameters = array_merge($parameters, ['request' => 'getProductPictures']);
+        return new ProductPictures($this->getSingleData($parameters));
     }
 
     public function getInventoryTransfers(array $parameters = [])
