@@ -14,7 +14,7 @@ class SalesDocumentsBulk
         $this->status = new StatusBulk($response[0]->status);
         $arr_req = [];
         foreach ($response[0]->requests as $record) {
-            array_push($arr_req, new SaveSalesDocuments($record));
+            array_push($arr_req, new SaleDocuments($record));
         }
         $this->requests = $arr_req;
     }
@@ -34,7 +34,7 @@ class SalesDocumentsBulk
     /**
      * Gets Response
      *
-     * @return SaveSalesDocuments[]|null
+     * @return SaleDocuments[]|null
      */
     public function getRequests()
     {
