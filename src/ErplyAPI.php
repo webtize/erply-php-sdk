@@ -469,6 +469,12 @@ class ErplyAPI
         return new SupplierGroups($this->getSingleData($parameters));
     }
 
+    public function getSalesDocumentActualReportsHTML(array $parameters = [])
+    {
+        $parameters = array_merge($parameters, ['request' => 'getSalesDocumentActualReportsHTML']);
+        return new SalesDocumentActualReportsHTMLs($this->getSingleData($parameters));
+    }
+
     public function getProductGroups(array $parameters = [])
     {
         $parameters = array_merge($parameters, ['request' => 'getProductGroups']);

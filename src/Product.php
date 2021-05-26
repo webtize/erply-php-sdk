@@ -117,7 +117,6 @@ class Product
         return $this->images;
     }
 
-
     public function getProductVariations()
     {
         return $this->productVariations;
