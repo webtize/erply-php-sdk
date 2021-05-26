@@ -382,6 +382,15 @@ class ErplyAPI
         return new PriceListBulk($this->getBulkData($bulkParameters));
     }
 
+    public function getSalesDocumentsBulk(array $parameters = [[]])
+    {
+        $bulkParameters = [];
+        foreach ($parameters as $parameter) {
+            array_push($bulkParameters, array_merge(['requestName' => 'getSalesDocuments'], $parameter));
+        }
+        return new SalesDocumentsBulk($this->getBulkData($bulkParameters));
+    }
+
     public function getProductPriceBulk(array $parameters = [[]])
     {
         $bulkParameters = [];
