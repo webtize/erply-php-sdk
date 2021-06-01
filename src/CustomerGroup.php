@@ -81,19 +81,19 @@ class CustomerGroup
     {
         $arr_query = [];
         if ($bulk) {
-            array_merge($arr_query, ["requestName" => "saveCustomerGroup"]);
+            $arr_query = array_merge($arr_query, ["requestName" => "saveCustomerGroup"]);
         } else {
-            array_merge($arr_query, ["request" => "saveCustomerGroup"]);
+            $arr_query = array_merge($arr_query, ["request" => "saveCustomerGroup"]);
         }
         if ($this->getRequestID() != null) {
             $arr_query = array_merge($arr_query, ["requestID" => $this->getRequestID()]);
         }
 
         if ($this->getCustomerGroupID() != null) {
-            array_merge($arr_query, ["customerGroupID" => $this->getCustomerGroupID()]);
+            $arr_query = array_merge($arr_query, ["customerGroupID" => $this->getCustomerGroupID()]);
         }
         if ($this->getName() != null) {
-            array_merge($arr_query, ["name" => $this->getName()]);
+            $arr_query = array_merge($arr_query, ["name" => $this->getName()]);
         }
         return $arr_query;
     }

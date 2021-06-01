@@ -24,7 +24,9 @@ class Supplier
     private $mobile = null;
     private $email = null;
     private $vatrateID = null;
+    private $vatNumber = null;
     private $fax = null;
+    private $paymentDays = null;
     private $code = null;
     private $integrationCode = null;
     private $countryID = null;
@@ -33,6 +35,26 @@ class Supplier
     private $address = null;
     private $currencyCode = null;
     private $GLN = null;
+
+    public function getVatNumber()
+    {
+        return $this->vatNumber;
+    }
+
+    public function setVatNumber($vatNumber): void
+    {
+        $this->vatNumber = $vatNumber;
+    }
+
+    public function getPaymentDays()
+    {
+        return $this->paymentDays;
+    }
+
+    public function setPaymentDays($paymentDays): void
+    {
+        $this->paymentDays = $paymentDays;
+    }
 
     public function getQuery($bulk)
     {
@@ -44,6 +66,12 @@ class Supplier
         }
         if ($this->getId() != null) {
             $arr_query = array_merge($arr_query, ["id" => $this->getId()]);
+        }
+        if ($this->getVatNumber() != null) {
+            $arr_query = array_merge($arr_query, ["vatNumber" => $this->getVatNumber()]);
+        }
+        if ($this->getPaymentDays() != null) {
+            $arr_query = array_merge($arr_query, ["paymentDays" => $this->getPaymentDays()]);
         }
         if ($this->getSupplierID() != null) {
             $arr_query = array_merge($arr_query, ["supplierID" => $this->getSupplierID()]);
@@ -136,6 +164,9 @@ class Supplier
             if (property_exists($record, "id")) {
                 $this->id = $record->id;
             }
+            if (property_exists($record, "vatNumber")) {
+                $this->vatNumber = $record->vatNumber;
+            }
             if (property_exists($record, "supplierID")) {
                 $this->supplierID = $record->supplierID;
             }
@@ -153,6 +184,9 @@ class Supplier
             }
             if (property_exists($record, "lastName")) {
                 $this->lastName = $record->lastName;
+            }
+            if (property_exists($record, "paymentDays")) {
+                $this->paymentDays = $record->paymentDays;
             }
             if (property_exists($record, "groupID")) {
                 $this->groupID = $record->groupID;
