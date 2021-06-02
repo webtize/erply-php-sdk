@@ -84,6 +84,23 @@ class Customer
     private $priceListID = null;
     private $priceListID2 = null;
     private $priceListID3 = null;
+    private $clientManagerID = null;
+
+    /**
+     * @return null
+     */
+    public function getClientManagerID()
+    {
+        return $this->clientManagerID;
+    }
+
+    /**
+     * @param null $clientManagerID
+     */
+    public function setClientManagerID($clientManagerID): void
+    {
+        $this->clientManagerID = $clientManagerID;
+    }
 
     /**
      * @return null
@@ -175,6 +192,9 @@ class Customer
         }
         if ($this->getJobTitleID() != null) {
             $arr_query = array_merge($arr_query, ["jobTitleID" => $this->getJobTitleID()]);
+        }
+        if ($this->getClientManagerID() != null) {
+            $arr_query = array_merge($arr_query, ["clientManagerID" => $this->getClientManagerID()]);
         }
         if ($this->getVatNumber() != null) {
             $arr_query = array_merge($arr_query, ["vatNumber" => $this->getVatNumber()]);
@@ -406,6 +426,9 @@ class Customer
             }
             if (property_exists($record, "jobTitleID")) {
                 $this->jobTitleID = $record->jobTitleID;
+            }
+            if (property_exists($record, "clientManagerID")) {
+                $this->clientManagerID = $record->clientManagerID;
             }
             if (property_exists($record, "paymentDays")) {
                 $this->paymentDays = $record->paymentDays;
