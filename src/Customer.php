@@ -85,6 +85,16 @@ class Customer
     private $priceListID2 = null;
     private $priceListID3 = null;
     private $clientManagerID = null;
+    private $customerManagerID = null;
+
+    /**
+     * @return null
+     */
+    public function getCustomerManagerID()
+    {
+        return $this->customerManagerID;
+    }
+
 
     /**
      * @return null
@@ -400,6 +410,30 @@ class Customer
         return $arr_query;
     }
 
+    /**
+     * @param null $priceListID
+     */
+    public function setPriceListID($priceListID): void
+    {
+        $this->priceListID = $priceListID;
+    }
+
+    /**
+     * @param null $priceListID2
+     */
+    public function setPriceListID2($priceListID2): void
+    {
+        $this->priceListID2 = $priceListID2;
+    }
+
+    /**
+     * @param null $priceListID3
+     */
+    public function setPriceListID3($priceListID3): void
+    {
+        $this->priceListID3 = $priceListID3;
+    }
+
     private $requestID = null;
 
     public function getRequestID()
@@ -427,8 +461,8 @@ class Customer
             if (property_exists($record, "jobTitleID")) {
                 $this->jobTitleID = $record->jobTitleID;
             }
-            if (property_exists($record, "clientManagerID")) {
-                $this->clientManagerID = $record->clientManagerID;
+            if (property_exists($record, "customerManagerID")) {
+                $this->customerManagerID = $record->customerManagerID;
             }
             if (property_exists($record, "paymentDays")) {
                 $this->paymentDays = $record->paymentDays;
