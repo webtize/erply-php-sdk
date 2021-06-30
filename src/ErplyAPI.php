@@ -466,7 +466,7 @@ class ErplyAPI
     public function getSessionKeyUser($record)
     {
         $parameters = array_merge($record->getQuery(), ['request' => 'getSessionKeyUser']);
-        return new SessionKeyUser($this->getSingleData($parameters));
+        return new SessionKeyUsers($this->getSingleData($parameters));
     }
 
     public function getProductPrices(array $parameters = [])
