@@ -38,7 +38,7 @@ class SessionKeyUsers
     }
 
     /**
-     * @return Supplier[]|null
+     * @return SessionKeyUser[]|null
      */
     public function getRecords()
     {
