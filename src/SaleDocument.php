@@ -288,7 +288,9 @@ class SaleDocument
             $arr_query = array_merge($arr_query, ["receiptLink" => $this->getReceiptLink()]);
         }
         if ($this->getAttributes() != null) {
-            $arr_query = array_merge($arr_query, ["attributes" => $this->getAttributes()]);
+            foreach ($this->getAttributes() as $key => $value) {
+                $arr_query = array_merge($arr_query, [$key => $value]);
+            }
         }
         if ($this->getTaxExemptCertificateNumber() != null) {
             $arr_query = array_merge($arr_query, ["taxExemptCertificateNumber" => $this->getTaxExemptCertificateNumber()]);
