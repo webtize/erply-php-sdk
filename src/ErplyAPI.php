@@ -810,7 +810,7 @@ class ErplyAPI
         return $this->code;
     }
 
-    private function setCode($code): void
+    public function setCode($code): void
     {
         $this->code = $code;
     }
@@ -850,7 +850,7 @@ class ErplyAPI
         return $this->sessionKey;
     }
 
-    private function setSessionKey($sessionKey): void
+    public function setSessionKey($sessionKey): void
     {
         $this->sessionKey = $sessionKey;
     }
