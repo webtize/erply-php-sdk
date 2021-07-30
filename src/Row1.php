@@ -76,7 +76,7 @@ class Row1
         if (property_exists($record, 'finalNetPrice')) {
             $this->finalNetPrice = $record->finalNetPrice;
         }
-        if (property_exists($record, 'inalPriceWithVAT')) {
+        if (property_exists($record, 'finalPriceWithVAT')) {
             $this->finalPriceWithVAT = $record->inalPriceWithVAT;
         }
         if (property_exists($record, 'rowNetTotal')) {

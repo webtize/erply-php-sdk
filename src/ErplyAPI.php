@@ -505,6 +505,12 @@ class ErplyAPI
         return new ProductGroups($this->getSingleData($parameters));
     }
 
+    public function getIssuedCoupons(array $parameters = [])
+    {
+        $parameters = array_merge($parameters, ['request' => 'getIssuedCoupons']);
+        return new IssuedCoupons($this->getSingleData($parameters));
+    }
+
     public function getChangedDataSince($changeSince, array $parameters = [])
     {
         $parameters = array_merge($parameters, ['request' => 'getChangedDataSince', 'changedSince' => $changeSince]);
