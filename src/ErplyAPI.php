@@ -505,6 +505,12 @@ class ErplyAPI
         return new ProductGroups($this->getSingleData($parameters));
     }
 
+    public function getEarnedRewardPointRecords(array $parameters = [])
+    {
+        $parameters = array_merge($parameters, ['request' => 'getEarnedRewardPointRecords']);
+        return new RewardPoints($this->getSingleData($parameters));
+    }
+
     public function getIssuedCoupons(array $parameters = [])
     {
         $parameters = array_merge($parameters, ['request' => 'getIssuedCoupons']);
