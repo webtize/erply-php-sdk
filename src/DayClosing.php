@@ -78,7 +78,7 @@ class DayClosing
             if (property_exists($record, "closedSum")) {
                 $this->closedSum = $record->closedSum;
             }
-            if (property_exists($recoDayrd, "bankedSum")) {
+            if (property_exists($record, "bankedSum")) {
                 $this->bankedSum = $record->bankedSum;
             }
             if (property_exists($record, "notes")) {
