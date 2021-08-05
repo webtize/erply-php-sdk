@@ -553,6 +553,12 @@ class ErplyAPI
         return new CustomerGroups($this->getSingleData($parameters));
     }
 
+    public function getDayClosings(array $parameters = [])
+    {
+        $parameters = array_merge($parameters, ['request' => 'getDayClosings']);
+        return new DayClosings($this->getSingleData($parameters));
+    }
+
     public function saveCustomerGroup($record)
     {
         return new SaveCustomerGroups($this->getSingleData($record->getQuery(false)));
