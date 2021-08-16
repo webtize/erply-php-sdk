@@ -523,6 +523,12 @@ class ErplyAPI
         return new IssuedCoupons($this->getSingleData($parameters));
     }
 
+    public function getStocktakings(array $parameters = [])
+    {
+        $parameters = array_merge($parameters, ['request' => 'getStocktakings']);
+        return new Stocktakings($this->getSingleData($parameters));
+    }
+
     public function getChangedDataSince($changeSince, array $parameters = [])
     {
         $parameters = array_merge($parameters, ['request' => 'getChangedDataSince', 'changedSince' => $changeSince]);
