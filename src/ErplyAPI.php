@@ -529,6 +529,12 @@ class ErplyAPI
         return new Stocktakings($this->getSingleData($parameters));
     }
 
+    public function getUserOperationsLog(array $parameters = [])
+    {
+        $parameters = array_merge($parameters, ['request' => 'getUserOperationsLog']);
+        return new UserOperationLogs($this->getSingleData($parameters));
+    }
+
     public function getChangedDataSince($changeSince, array $parameters = [])
     {
         $parameters = array_merge($parameters, ['request' => 'getChangedDataSince', 'changedSince' => $changeSince]);
