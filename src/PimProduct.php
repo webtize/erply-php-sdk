@@ -73,193 +73,193 @@ class PimProduct
 
     public function __construct($record)
     {
-        if ($record->id != null) {
+        if (property_exists($record, 'id')) {
             $this->id = $record->id;
         }
-        if ($record->type != null) {
+        if (property_exists($record, 'type')) {
             $this->type = $record->type;
         }
-        if ($record->group_id != null) {
+        if (property_exists($record, 'group_id')) {
             $this->group_id = $record->group_id;
         }
-        if ($record->unit_id != null) {
+        if (property_exists($record, 'unit_id')) {
             $this->unit_id = $record->unit_id;
         }
-        if ($record->name != null) {
+        if (property_exists($record, 'name')) {
             $this->name = $record->name->en;
         }
-        if ($record->description != null) {
+        if (property_exists($record, 'description')) {
             $this->description = $record->description->en;
         }
-        if ($record->code != null) {
+        if (property_exists($record, 'code')) {
             $this->code = $record->code;
         }
-        if ($record->code2 != null) {
+        if (property_exists($record, 'code2')) {
             $this->code2 = $record->code2;
         }
-        if ($record->code3 != null) {
+        if (property_exists($record, 'code3')) {
             $this->code3 = $record->code3;
         }
-        if ($record->code5 != null) {
+        if (property_exists($record, 'code5')) {
             $this->code5 = $record->code5;
         }
-        if ($record->code6 != null) {
+        if (property_exists($record, 'code6')) {
             $this->code6 = $record->code6;
         }
-        if ($record->code7 != null) {
+        if (property_exists($record, 'code7')) {
             $this->code7 = $record->code7;
         }
-        if ($record->code8 != null) {
+        if (property_exists($record, 'code8')) {
             $this->code8 = $record->code8;
         }
-        if ($record->extra_field1_id != null) {
+        if (property_exists($record, 'extra_field1_id')) {
             $this->extra_field1_id = $record->extra_field1_id;
         }
-        if ($record->extra_field2_id != null) {
+        if (property_exists($record, 'extra_field2_id')) {
             $this->extra_field2_id = $record->extra_field2_id;
         }
-        if ($record->extra_field3_id != null) {
+        if (property_exists($record, 'extra_field3_id')) {
             $this->extra_field3_id = $record->extra_field3_id;
         }
-        if ($record->extra_field4_id != null) {
+        if (property_exists($record, 'extra_field4_id')) {
             $this->extra_field4_id = $record->extra_field4_id;
         }
-        if ($record->supplier_code != null) {
+        if (property_exists($record, 'supplier_code')) {
             $this->supplier_code = $record->supplier_code;
         }
-        if ($record->tax_rate_id != null) {
+        if (property_exists($record, 'tax_rate_id')) {
             $this->tax_rate_id = $record->tax_rate_id;
         }
-        if ($record->price != null) {
+        if (property_exists($record, 'price')) {
             $this->price = $record->price;
         }
-        if ($record->price_with_tax != null) {
+        if (property_exists($record, 'price_with_tax')) {
             $this->price_with_tax = $record->price_with_tax;
         }
-        if ($record->net_weight != null) {
+        if (property_exists($record, 'net_weight')) {
             $this->net_weight = $record->net_weight;
         }
-        if ($record->gross_weight != null) {
+        if (property_exists($record, 'gross_weight')) {
             $this->gross_weight = $record->gross_weight;
         }
-        if ($record->length != null) {
+        if (property_exists($record, 'length')) {
             $this->length = $record->length;
         }
-        if ($record->width != null) {
+        if (property_exists($record, 'width')) {
             $this->width = $record->width;
         }
-        if ($record->height != null) {
+        if (property_exists($record, 'height')) {
             $this->height = $record->height;
         }
-        if ($record->is_gift_card != null) {
+        if (property_exists($record, 'is_gift_card')) {
             $this->is_gift_card = $record->is_gift_card;
         }
-        if ($record->non_discountable != null) {
+        if (property_exists($record, 'non_discountable')) {
             $this->non_discountable = $record->non_discountable;
         }
-        if ($record->non_refundable != null) {
+        if (property_exists($record, 'non_refundable')) {
             $this->non_refundable = $record->non_refundable;
         }
-        if ($record->volume != null) {
+        if (property_exists($record, 'volume')) {
             $this->volume = $record->volume;
         }
-        if ($record->category_id != null) {
+        if (property_exists($record, 'category_id')) {
             $this->category_id = $record->category_id;
         }
-        if ($record->brand_id != null) {
+        if (property_exists($record, 'brand_id')) {
             $this->brand_id = $record->brand_id;
         }
-        if ($record->supplier_id != null) {
+        if (property_exists($record, 'supplier_id')) {
             $this->supplier_id = $record->supplier_id;
         }
-        if ($record->priority_group_id != null) {
+        if (property_exists($record, 'priority_group_id')) {
             $this->priority_group_id = $record->priority_group_id;
         }
-        if ($record->country_of_origin_id != null) {
+        if (property_exists($record, 'country_of_origin_id')) {
             $this->country_of_origin_id = $record->country_of_origin_id;
         }
-        if ($record->manufacturer_name != null) {
+        if (property_exists($record, 'manufacturer_name')) {
             $this->manufacturer_name = $record->manufacturer_name;
         }
-        if ($record->cost != null) {
+        if (property_exists($record, 'cost')) {
             $this->cost = $record->cost;
         }
-        if ($record->status != null) {
+        if (property_exists($record, 'status')) {
             $this->status = $record->status;
         }
-        if ($record->displayed_in_webshop != null) {
+        if (property_exists($record, 'displayed_in_webshop')) {
             $this->displayed_in_webshop = $record->displayed_in_webshop;
         }
-        if ($record->location_in_warehouse_id != null) {
+        if (property_exists($record, 'location_in_warehouse_id')) {
             $this->location_in_warehouse_id = $record->location_in_warehouse_id;
         }
-        if ($record->location_in_warehouse_text != null) {
+        if (property_exists($record, 'location_in_warehouse_text')) {
             $this->location_in_warehouse_text = $record->location_in_warehouse_text;
         }
-        if ($record->parent_product_id != null) {
+        if (property_exists($record, 'parent_product_id')) {
             $this->parent_product_id = $record->parent_product_id;
         }
-        if ($record->deposit_fee_id != null) {
+        if (property_exists($record, 'deposit_fee_id')) {
             $this->deposit_fee_id = $record->deposit_fee_id;
         }
-        if ($record->family_id != null) {
+        if (property_exists($record, 'family_id')) {
             $this->family_id = $record->family_id;
         }
-        if ($record->age_restriction != null) {
+        if (property_exists($record, 'age_restriction')) {
             $this->age_restriction = $record->age_restriction;
         }
-        if ($record->added != null) {
+        if (property_exists($record, 'added')) {
             $this->added = $record->added;
         }
-        if ($record->addedby != null) {
+        if (property_exists($record, 'addedby')) {
             $this->addedby = $record->addedby;
         }
-        if ($record->changed != null) {
+        if (property_exists($record, 'changed')) {
             $this->changed = $record->changed;
         }
-        if ($record->changedby != null) {
+        if (property_exists($record, 'changedby')) {
             $this->changedby = $record->changedby;
         }
-        if ($record->delivery_time != null) {
+        if (property_exists($record, 'delivery_time')) {
             $this->delivery_time = $record->delivery_time;
         }
-        if ($record->packaging_type != null) {
+        if (property_exists($record, 'packaging_type')) {
             $this->packaging_type = $record->packaging_type;
         }
-        if ($record->alcohol_registry_number != null) {
+        if (property_exists($record, 'alcohol_registry_number')) {
             $this->alcohol_registry_number = $record->alcohol_registry_number;
         }
-        if ($record->alcohol_percentage != null) {
+        if (property_exists($record, 'alcohol_percentage')) {
             $this->alcohol_percentage = $record->alcohol_percentage;
         }
-        if ($record->batches != null) {
+        if (property_exists($record, 'batches')) {
             $this->batches = $record->batches;
         }
-        if ($record->excise_declaration_number != null) {
+        if (property_exists($record, 'excise_declaration_number')) {
             $this->excise_declaration_number = $record->excise_declaration_number;
         }
-        if ($record->tax_free != null) {
+        if (property_exists($record, 'tax_free')) {
             $this->tax_free = $record->tax_free;
         }
-        if ($record->is_regular_gift_card != null) {
+        if (property_exists($record, 'is_regular_gift_card')) {
             $this->is_regular_gift_card = $record->is_regular_gift_card;
         }
-        if ($record->reward_points_not_allowed != null) {
+        if (property_exists($record, 'reward_points_not_allowed')) {
             $this->reward_points_not_allowed = $record->reward_points_not_allowed;
         }
-        if ($record->non_stock_product != null) {
+        if (property_exists($record, 'non_stock_product')) {
             $this->non_stock_product = $record->non_stock_product;
         }
-        if ($record->cashier_must_enter_price != null) {
+        if (property_exists($record, 'cashier_must_enter_price')) {
             $this->cashier_must_enter_price = $record->cashier_must_enter_price;
         }
-        if ($record->labels_not_needed != null) {
+        if (property_exists($record, 'labels_not_needed')) {
             $this->labels_not_needed = $record->labels_not_needed;
         }
-        if ($record->deposit_fee_amount != null) {
+        if (property_exists($record, 'deposit_fee_amount')) {
             $this->deposit_fee_amount = $record->deposit_fee_amount;
         }
-        if ($record->product_reorder_multiples != null) {
+        if (property_exists($record, 'product_reorder_multiples')) {
             $this->product_reorder_multiples = $record->product_reorder_multiples;
         }
     }
