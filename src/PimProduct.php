@@ -73,69 +73,195 @@ class PimProduct
 
     public function __construct($record)
     {
-        $this->id = $record->id;
-        $this->type = $record->type;
-        $this->group_id = $record->group_id;
-        $this->unit_id = $record->unit_id;
-        $this->name = $record->name->en;
-        $this->description = $record->description->en;
-        $this->code = $record->code;
-        $this->code2 = $record->code2;
-        $this->code3 = $record->code3;
-        $this->code5 = $record->code5;
-        $this->code6 = $record->code6;
-        $this->code7 = $record->code7;
-        $this->code8 = $record->code8;
-        $this->extra_field1_id = $record->extra_field1_id;
-        $this->extra_field2_id = $record->extra_field2_id;
-        $this->extra_field3_id = $record->extra_field3_id;
-        $this->extra_field4_id = $record->extra_field4_id;
-        $this->supplier_code = $record->supplier_code;
-        $this->tax_rate_id = $record->tax_rate_id;
-        $this->price = $record->price;
-        $this->price_with_tax = $record->price_with_tax;
-        $this->net_weight = $record->net_weight;
-        $this->gross_weight = $record->gross_weight;
-        $this->length = $record->length;
-        $this->width = $record->width;
-        $this->height = $record->height;
-        $this->is_gift_card = $record->is_gift_card;
-        $this->non_discountable = $record->non_discountable;
-        $this->non_refundable = $record->non_refundable;
-        $this->volume = $record->volume;
-        $this->category_id = $record->category_id;
-        $this->brand_id = $record->brand_id;
-        $this->supplier_id = $record->supplier_id;
-        $this->priority_group_id = $record->priority_group_id;
-        $this->country_of_origin_id = $record->country_of_origin_id;
-        $this->manufacturer_name = $record->manufacturer_name;
-        $this->cost = $record->cost;
-        $this->status = $record->status;
-        $this->displayed_in_webshop = $record->displayed_in_webshop;
-        $this->location_in_warehouse_id = $record->location_in_warehouse_id;
-        $this->location_in_warehouse_text = $record->location_in_warehouse_text;
-        $this->parent_product_id = $record->parent_product_id;
-        $this->deposit_fee_id = $record->deposit_fee_id;
-        $this->family_id = $record->family_id;
-        $this->age_restriction = $record->age_restriction;
-        $this->added = $record->added;
-        $this->addedby = $record->addedby;
-        $this->changed = $record->changed;
-        $this->changedby = $record->changedby;
-        $this->delivery_time = $record->delivery_time;
-        $this->packaging_type = $record->packaging_type;
-        $this->alcohol_registry_number = $record->alcohol_registry_number;
-        $this->alcohol_percentage = $record->alcohol_percentage;
-        $this->batches = $record->batches;
-        $this->excise_declaration_number = $record->excise_declaration_number;
-        $this->tax_free = $record->tax_free;
-        $this->is_regular_gift_card = $record->is_regular_gift_card;
-        $this->reward_points_not_allowed = $record->reward_points_not_allowed;
-        $this->non_stock_product = $record->non_stock_product;
-        $this->cashier_must_enter_price = $record->cashier_must_enter_price;
-        $this->labels_not_needed = $record->labels_not_needed;
-        $this->deposit_fee_amount = $record->deposit_fee_amount;
-        $this->product_reorder_multiples = $record->product_reorder_multiples;
+        if ($record->id != null) {
+            $this->id = $record->id;
+        }
+        if ($record->type != null) {
+            $this->type = $record->type;
+        }
+        if ($record->group_id != null) {
+            $this->group_id = $record->group_id;
+        }
+        if ($record->unit_id != null) {
+            $this->unit_id = $record->unit_id;
+        }
+        if ($record->name != null) {
+            $this->name = $record->name->en;
+        }
+        if ($record->description != null) {
+            $this->description = $record->description->en;
+        }
+        if ($record->code != null) {
+            $this->code = $record->code;
+        }
+        if ($record->code2 != null) {
+            $this->code2 = $record->code2;
+        }
+        if ($record->code3 != null) {
+            $this->code3 = $record->code3;
+        }
+        if ($record->code5 != null) {
+            $this->code5 = $record->code5;
+        }
+        if ($record->code6 != null) {
+            $this->code6 = $record->code6;
+        }
+        if ($record->code7 != null) {
+            $this->code7 = $record->code7;
+        }
+        if ($record->code8 != null) {
+            $this->code8 = $record->code8;
+        }
+        if ($record->extra_field1_id != null) {
+            $this->extra_field1_id = $record->extra_field1_id;
+        }
+        if ($record->extra_field2_id != null) {
+            $this->extra_field2_id = $record->extra_field2_id;
+        }
+        if ($record->extra_field3_id != null) {
+            $this->extra_field3_id = $record->extra_field3_id;
+        }
+        if ($record->extra_field4_id != null) {
+            $this->extra_field4_id = $record->extra_field4_id;
+        }
+        if ($record->supplier_code != null) {
+            $this->supplier_code = $record->supplier_code;
+        }
+        if ($record->tax_rate_id != null) {
+            $this->tax_rate_id = $record->tax_rate_id;
+        }
+        if ($record->price != null) {
+            $this->price = $record->price;
+        }
+        if ($record->price_with_tax != null) {
+            $this->price_with_tax = $record->price_with_tax;
+        }
+        if ($record->net_weight != null) {
+            $this->net_weight = $record->net_weight;
+        }
+        if ($record->gross_weight != null) {
+            $this->gross_weight = $record->gross_weight;
+        }
+        if ($record->length != null) {
+            $this->length = $record->length;
+        }
+        if ($record->width != null) {
+            $this->width = $record->width;
+        }
+        if ($record->height != null) {
+            $this->height = $record->height;
+        }
+        if ($record->is_gift_card != null) {
+            $this->is_gift_card = $record->is_gift_card;
+        }
+        if ($record->non_discountable != null) {
+            $this->non_discountable = $record->non_discountable;
+        }
+        if ($record->non_refundable != null) {
+            $this->non_refundable = $record->non_refundable;
+        }
+        if ($record->volume != null) {
+            $this->volume = $record->volume;
+        }
+        if ($record->category_id != null) {
+            $this->category_id = $record->category_id;
+        }
+        if ($record->brand_id != null) {
+            $this->brand_id = $record->brand_id;
+        }
+        if ($record->supplier_id != null) {
+            $this->supplier_id = $record->supplier_id;
+        }
+        if ($record->priority_group_id != null) {
+            $this->priority_group_id = $record->priority_group_id;
+        }
+        if ($record->country_of_origin_id != null) {
+            $this->country_of_origin_id = $record->country_of_origin_id;
+        }
+        if ($record->manufacturer_name != null) {
+            $this->manufacturer_name = $record->manufacturer_name;
+        }
+        if ($record->cost != null) {
+            $this->cost = $record->cost;
+        }
+        if ($record->status != null) {
+            $this->status = $record->status;
+        }
+        if ($record->displayed_in_webshop != null) {
+            $this->displayed_in_webshop = $record->displayed_in_webshop;
+        }
+        if ($record->location_in_warehouse_id != null) {
+            $this->location_in_warehouse_id = $record->location_in_warehouse_id;
+        }
+        if ($record->location_in_warehouse_text != null) {
+            $this->location_in_warehouse_text = $record->location_in_warehouse_text;
+        }
+        if ($record->parent_product_id != null) {
+            $this->parent_product_id = $record->parent_product_id;
+        }
+        if ($record->deposit_fee_id != null) {
+            $this->deposit_fee_id = $record->deposit_fee_id;
+        }
+        if ($record->family_id != null) {
+            $this->family_id = $record->family_id;
+        }
+        if ($record->age_restriction != null) {
+            $this->age_restriction = $record->age_restriction;
+        }
+        if ($record->added != null) {
+            $this->added = $record->added;
+        }
+        if ($record->addedby != null) {
+            $this->addedby = $record->addedby;
+        }
+        if ($record->changed != null) {
+            $this->changed = $record->changed;
+        }
+        if ($record->changedby != null) {
+            $this->changedby = $record->changedby;
+        }
+        if ($record->delivery_time != null) {
+            $this->delivery_time = $record->delivery_time;
+        }
+        if ($record->packaging_type != null) {
+            $this->packaging_type = $record->packaging_type;
+        }
+        if ($record->alcohol_registry_number != null) {
+            $this->alcohol_registry_number = $record->alcohol_registry_number;
+        }
+        if ($record->alcohol_percentage != null) {
+            $this->alcohol_percentage = $record->alcohol_percentage;
+        }
+        if ($record->batches != null) {
+            $this->batches = $record->batches;
+        }
+        if ($record->excise_declaration_number != null) {
+            $this->excise_declaration_number = $record->excise_declaration_number;
+        }
+        if ($record->tax_free != null) {
+            $this->tax_free = $record->tax_free;
+        }
+        if ($record->is_regular_gift_card != null) {
+            $this->is_regular_gift_card = $record->is_regular_gift_card;
+        }
+        if ($record->reward_points_not_allowed != null) {
+            $this->reward_points_not_allowed = $record->reward_points_not_allowed;
+        }
+        if ($record->non_stock_product != null) {
+            $this->non_stock_product = $record->non_stock_product;
+        }
+        if ($record->cashier_must_enter_price != null) {
+            $this->cashier_must_enter_price = $record->cashier_must_enter_price;
+        }
+        if ($record->labels_not_needed != null) {
+            $this->labels_not_needed = $record->labels_not_needed;
+        }
+        if ($record->deposit_fee_amount != null) {
+            $this->deposit_fee_amount = $record->deposit_fee_amount;
+        }
+        if ($record->product_reorder_multiples != null) {
+            $this->product_reorder_multiples = $record->product_reorder_multiples;
+        }
     }
 
 
