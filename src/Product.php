@@ -647,7 +647,7 @@ class Product
             $arr_query = array_merge($arr_query, ["walkInService" => $this->getWalkInService()]);
         }
         if ($this->getLongAttributes() != null) {
-            array_merge($arr_query, ["longAttributes" => $this->getLongAttributes()]);
+            $arr_query = array_merge($arr_query, ["longAttributes" => $this->getLongAttributes()]);
         }
         if ($this->getType() != null) {
             $arr_query = array_merge($arr_query, ["type" => $this->getType()]);
