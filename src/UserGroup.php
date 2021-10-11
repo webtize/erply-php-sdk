@@ -46,7 +46,7 @@ class UserGroup
             if (property_exists($record, "attributes")) {
                 $this->attributes = $record->attributes;
             }
-        }¬
+        }
 
     }
 
