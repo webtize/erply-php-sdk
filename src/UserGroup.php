@@ -24,15 +24,29 @@ class UserGroup
      */
     public function __construct($record = null)
     {
-        if($record!= null){
-            $this->userGroupID = $record->userGroupID;
-            $this->name = $record->name;
-            $this->added = $record->added;
-            $this->addedByUserName = $record->addedByUserName;
-            $this->lastModified = $record->lastModified;
-            $this->lastModifiedByUserName = $record->lastModifiedByUserName;
-            $this->attributes = $record->attributes;
-        }
+        if ($record != null) {
+            if (property_exists($record, "userGroupID")) {
+                $this->userGroupID = $record->userGroupID;
+            }
+            if (property_exists($record, "name")) {
+                $this->name = $record->name;
+            }
+            if (property_exists($record, "added")) {
+                $this->added = $record->added;
+            }
+            if (property_exists($record, "addedByUserName")) {
+                $this->addedByUserName = $record->addedByUserName;
+            }
+            if (property_exists($record, "lastModified")) {
+                $this->lastModified = $record->lastModified;
+            }
+            if (property_exists($record, "lastModifiedByUserName")) {
+                $this->lastModifiedByUserName = $record->lastModifiedByUserName;
+            }
+            if (property_exists($record, "attributes")) {
+                $this->attributes = $record->attributes;
+            }
+        }¬
 
     }
 
@@ -92,8 +106,6 @@ class UserGroup
     {
         return $this->attributes;
     }
-
-
 
 
 }
