@@ -18,6 +18,7 @@ class ErplyAPI
     private $password;
     private $parameters = [];
     private $sessionKey = null;
+    private $url = null;
 
 
     public function saveAddresses($records)
@@ -776,6 +777,7 @@ class ErplyAPI
         }
         if (isset($response->records[0]->sessionKey)) {
             $this->setSessionKey($response->records[0]->sessionKey);
+            $this->setUrl($response->records[0]->loginUrl);
         }
         return $response;
     }
@@ -798,6 +800,7 @@ class ErplyAPI
         }
         if (isset($response->records[0]->sessionKey)) {
             $this->setSessionKey($response->records[0]->sessionKey);
+            $this->setUrl($response->records[0]->loginUrl);
         }
         return $response;
     }
@@ -895,6 +898,16 @@ class ErplyAPI
     public function setSessionKey($sessionKey): void
     {
         $this->sessionKey = $sessionKey;
+    }
+
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    public function setUrl($url): void
+    {
+        $this->url = $url;
     }
 
     public function getServiceEndpoints(): \stdClass
