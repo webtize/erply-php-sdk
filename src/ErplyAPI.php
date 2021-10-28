@@ -347,6 +347,12 @@ class ErplyAPI
         return new Payments($this->getSingleData($parameters));
     }
 
+    public function getPaymentTypes(array $parameters = [])
+    {
+        $parameters = array_merge($parameters, ['request' => 'getPaymentTypes']);
+        return new PaymentTypes($this->getSingleData($parameters));
+    }
+
     public function getPaymentsBulk(array $parameters = [[]])
     {
         $bulkParameters = [];
