@@ -38,6 +38,7 @@ class Customer
     private $fax = null;
     private $code = null;
     private $birthday = null;
+    private $companyID = null;
     private $integrationCode = null;
     private $flagStatus = null;
     private $colorStatus = null;
@@ -86,6 +87,23 @@ class Customer
     private $priceListID3 = null;
     private $clientManagerID = null;
     private $customerManagerID = null;
+
+    /**
+     * @return null
+     */
+    public function getCompanyID()
+    {
+        return $this->companyID;
+    }
+
+    /**
+     * @param null $companyID
+     */
+    public function setCompanyID($companyID): void
+    {
+        $this->companyID = $companyID;
+    }
+
 
     /**
      * @return null
@@ -199,6 +217,9 @@ class Customer
         }
         if ($this->getPaymentDays() != null) {
             $arr_query = array_merge($arr_query, ["paymentDays" => $this->getPaymentDays()]);
+        }
+        if ($this->getCompanyID() != null) {
+            $arr_query = array_merge($arr_query, ["companyID" => $this->getCompanyID()]);
         }
         if ($this->getJobTitleID() != null) {
             $arr_query = array_merge($arr_query, ["jobTitleID" => $this->getJobTitleID()]);
@@ -517,6 +538,9 @@ class Customer
             }
             if (property_exists($record, "phone")) {
                 $this->phone = $record->phone;
+            }
+            if (property_exists($record, "companyID")) {
+                $this->companyID = $record->companyID;
             }
             if (property_exists($record, "mobile")) {
                 $this->mobile = $record->mobile;
