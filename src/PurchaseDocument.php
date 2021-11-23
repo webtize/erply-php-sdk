@@ -53,6 +53,7 @@ class PurchaseDocument
     private $netTotal = null;
     private $vatTotal = null;
     private $rows = null;
+    private $attributes = null;
     private $total = null;
     private $netTotalsByTaxRate = null;
     private $vatTotalsByTaxRate = null;
@@ -65,6 +66,10 @@ class PurchaseDocument
         return $this->rows;
     }
 
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
 
     public function getQuery($bulk)
     {
@@ -385,6 +390,10 @@ class PurchaseDocument
             }
             if (property_exists($record, "baseDocuments")) {
                 $this->baseDocuments = $record->baseDocuments;
+            }
+
+            if (property_exists($record, "attributes")) {
+                $this->attributes = $record->attributes;
             }
         }
     }
