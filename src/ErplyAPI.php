@@ -518,7 +518,7 @@ class ErplyAPI
         return new CashIns($this->getSingleData($parameters));
     }
 
-     public function getUserGroups(array $parameters = [])
+    public function getUserGroups(array $parameters = [])
     {
         $parameters = array_merge($parameters, ['request' => 'getUserGroups']);
         return new UserGroups($this->getSingleData($parameters));

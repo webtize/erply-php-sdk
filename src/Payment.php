@@ -47,6 +47,7 @@ class Payment
     private $bankDescription = null;
     private $bankCurrency = null;
     private $archivalNumber = null;
+    private $attributes = null;
 
     public function getQuery($bulk)
     {
@@ -191,6 +192,9 @@ class Payment
             if (property_exists($record, "paymentID")) {
                 $this->paymentID = $record->paymentID;
             }
+            if (property_exists($record, "attributes")) {
+                $this->attributes = $record->attributes;
+            }
             if (property_exists($record, "customerID")) {
                 $this->customerID = $record->customerID;
             }
@@ -302,6 +306,12 @@ class Payment
     public function getPaymentID()
     {
         return $this->paymentID;
+    }
+
+
+    public function getAttributes()
+    {
+        return $this->attributes;
     }
 
     public function setPaymentID($paymentID)
