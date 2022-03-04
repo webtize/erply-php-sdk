@@ -61,6 +61,9 @@ class PurchaseDocument
     private $baseToDocuments = null;
     private $baseDocuments = null;
 
+    /**
+     * @return Row1[]|null
+     */
     public function getRows()
     {
         return $this->rows;
