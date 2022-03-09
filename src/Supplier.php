@@ -34,7 +34,25 @@ class Supplier
     private $countryCode = null;
     private $address = null;
     private $currencyCode = null;
+    private $notes = null;
     private $GLN = null;
+
+    /**
+     * @return null
+     */
+    public function getNotes()
+    {
+        return $this->notes;
+    }
+
+    /**
+     * @param null $notes
+     */
+    public function setNotes($notes): void
+    {
+        $this->notes = $notes;
+    }
+
 
     public function getVatNumber()
     {
@@ -136,6 +154,9 @@ class Supplier
         if ($this->getGLN() != null) {
             $arr_query = array_merge($arr_query, ["GLN" => $this->getGLN()]);
         }
+        if ($this->getNotes() != null) {
+            $arr_query = array_merge($arr_query, ["notes" => $this->getNotes()]);
+        }
         if ($this->getRequestID() != null) {
             $arr_query = array_merge($arr_query, ["requestID" => $this->getRequestID()]);
         }
@@ -159,6 +180,10 @@ class Supplier
         if ($record != null) {
             if (property_exists($record, "requestID")) {
                 $this->requestID = $record->requestID;
+            }
+
+            if (property_exists($record, "notes")) {
+                $this->notes = $record->notes;
             }
 
             if (property_exists($record, "id")) {
