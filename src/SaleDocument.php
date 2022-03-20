@@ -20,6 +20,7 @@ class SaleDocument
     private $inventoryTransactionDate = null;
     private $clientID = null;
     private $addressID = null;
+    private $address = null;
     private $contactID = null;
     private $shipToContactID = null;
     private $employeeID = null;
@@ -87,7 +88,7 @@ class SaleDocument
     private $transactionTypeName = null;
     private $transportTypeID = null;
     private $transportTypeName = null;
-    private $deliveryTerms = null;
+    private $deliveryaddressTerms = null;
     private $deliveryTermsLocation = null;
     private $euInvoiceType = null;
     private $paymentStatus = null;
@@ -102,6 +103,39 @@ class SaleDocument
         return $this->rows;
     }
 
+    /**
+     * @return null
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param null $address
+     */
+    public function setAddress($address): void
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return null
+     */
+    public function getDeliveryaddressTerms()
+    {
+        return $this->deliveryaddressTerms;
+    }
+
+    /**
+     * @param null $deliveryaddressTerms
+     */
+    public function setDeliveryaddressTerms($deliveryaddressTerms): void
+    {
+        $this->deliveryaddressTerms = $deliveryaddressTerms;
+    }
+
+
     public function getQuery($bulk)
     {
         $arr_query = [];
@@ -115,6 +149,12 @@ class SaleDocument
         }
         if ($this->getCurrencyRate() != null) {
             $arr_query = array_merge($arr_query, ["currencyRate" => $this->getCurrencyRate()]);
+        }
+        if ($this->getAddress() != null) {
+            $arr_query = array_merge($arr_query, ["address" => $this->getAddress()]);
+        }
+        if ($this->getDeliveryaddressTerms() != null) {
+            $arr_query = array_merge($arr_query, ["deliveryaddressTerms" => $this->getDeliveryaddressTerms()]);
         }
         if ($this->getWarehouseID() != null) {
             $arr_query = array_merge($arr_query, ["warehouseID" => $this->getWarehouseID()]);
@@ -384,6 +424,12 @@ class SaleDocument
             }
             if (property_exists($record, "currencyRate")) {
                 $this->currencyRate = $record->currencyRate;
+            }
+            if (property_exists($record, "address")) {
+                $this->address = $record->address;
+            }
+            if (property_exists($record, "deliveryaddressTerms")) {
+                $this->deliveryaddressTerms = $record->deliveryaddressTerms;
             }
             if (property_exists($record, "rows")) {
                 $this->rows = [];
