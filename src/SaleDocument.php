@@ -46,6 +46,7 @@ class SaleDocument
     private $clientEmail = null;
     private $clientCardNumber = null;
     private $clientFactoringContractNumber = null;
+    private $deliveryOnlyWhenAllItemsInStock = null;
     private $clientPaysViaFactoring = null;
     private $shipToID = null;
     private $shipToName = null;
@@ -135,6 +136,22 @@ class SaleDocument
         $this->deliveryaddressTerms = $deliveryaddressTerms;
     }
 
+    /**
+     * @return null
+     */
+    public function getDeliveryOnlyWhenAllItemsInStock()
+    {
+        return $this->deliveryOnlyWhenAllItemsInStock;
+    }
+
+    /**
+     * @param null $deliveryOnlyWhenAllItemsInStock
+     */
+    public function setDeliveryOnlyWhenAllItemsInStock($deliveryOnlyWhenAllItemsInStock): void
+    {
+        $this->deliveryOnlyWhenAllItemsInStock = $deliveryOnlyWhenAllItemsInStock;
+    }
+
 
     public function getQuery($bulk)
     {
@@ -209,6 +226,9 @@ class SaleDocument
         }
         if ($this->getFulfillmentStatus() != null) {
             $arr_query = array_merge($arr_query, ["fulfillmentStatus" => $this->getFulfillmentStatus()]);
+        }
+        if ($this->getDeliveryOnlyWhenAllItemsInStock() != null) {
+            $arr_query = array_merge($arr_query, ["deliveryOnlyWhenAllItemsInStock" => $this->getDeliveryOnlyWhenAllItemsInStock()]);
         }
         if ($this->getPrintDiscounts() != null) {
             $arr_query = array_merge($arr_query, ["printDiscounts" => $this->getPrintDiscounts()]);
@@ -424,6 +444,9 @@ class SaleDocument
             }
             if (property_exists($record, "currencyRate")) {
                 $this->currencyRate = $record->currencyRate;
+            }
+            if (property_exists($record, "deliveryOnlyWhenAllItemsInStock")) {
+                $this->deliveryOnlyWhenAllItemsInStock = $record->deliveryOnlyWhenAllItemsInStock;
             }
             if (property_exists($record, "address")) {
                 $this->address = $record->address;
