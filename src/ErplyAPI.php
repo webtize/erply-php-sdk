@@ -458,6 +458,12 @@ class ErplyAPI
         return new UsedRewardPointRecords($this->getSingleData($parameters));
     }
 
+    public function addCustomerRewardPoints(array $parameters = [])
+    {
+        $parameters = array_merge($parameters, ['request' => 'addCustomerRewardPoints']);
+        return new CustomerRewardPoints($this->getSingleData($parameters));
+    }
+
     public function getInventoryRegistrations(array $parameters = [])
     {
         $parameters = array_merge($parameters, ['request' => 'getInventoryRegistrations']);
