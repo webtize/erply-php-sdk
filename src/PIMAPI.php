@@ -8,7 +8,7 @@ use GuzzleHttp\Client;
 
 class PIMAPI
 {
-    private $endpoint;
+    public $endpoint;
     private $sessionKey;
     private $storeCode;
 

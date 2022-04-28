@@ -87,8 +87,8 @@ class DayClosing
             if (property_exists($record, "reasonID")) {
                 $this->reasonID = $record->reasonID;
             }
-            if (property_exists($record, "currencyCod")) {
-                $this->currencyCod = $record->currencyCod;
+            if (property_exists($record, "currencyCode")) {
+                $this->currencyCod = $record->currencyCode;
             }
             if (property_exists($record, "attributes")) {
                 $this->attributes = $record->attributes;
