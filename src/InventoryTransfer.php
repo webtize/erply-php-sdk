@@ -13,6 +13,7 @@ class InventoryTransfer
 {
     private $inventoryTransferID = null;
     private $inventoryTransferNo = null;
+    private $inventoryTransferOrderID = null;
     private $creatorID = null;
     private $warehouseFromID = null;
     private $warehouseToID = null;
@@ -74,6 +75,9 @@ class InventoryTransfer
         }
         if ($this->getShippingDateActual() != null) {
             $arr_query = array_merge($arr_query, ["shippingDateActual" => $this->getShippingDateActual()]);
+        }
+        if ($this->getInventoryTransferOrderID() != null) {
+            $arr_query = array_merge($arr_query, ["inventoryTransferOrderID" => $this->getInventoryTransferOrderID()]);
         }
         if ($this->getNotes() != null) {
             $arr_query = array_merge($arr_query, ["notes" => $this->getNotes()]);
@@ -138,6 +142,9 @@ class InventoryTransfer
             }
             if (property_exists($record, "currencyCode")) {
                 $this->currencyCode = $record->currencyCode;
+            }
+            if (property_exists($record, "inventoryTransferOrderID")) {
+                $this->inventoryTransferOrderID = $record->inventoryTransferOrderID;
             }
             if (property_exists($record, "currencyRate")) {
                 $this->currencyRate = $record->currencyRate;
@@ -295,6 +302,23 @@ class InventoryTransfer
     {
         return $this->shippingDateActual;
     }
+
+    /**
+     * @return null
+     */
+    public function getInventoryTransferOrderID()
+    {
+        return $this->inventoryTransferOrderID;
+    }
+
+    /**
+     * @param null $inventoryTransferOrderID
+     */
+    public function setInventoryTransferOrderID($inventoryTransferOrderID): void
+    {
+        $this->inventoryTransferOrderID = $inventoryTransferOrderID;
+    }
+
 
     public function setShippingDateActual($shippingDateActual)
     {
