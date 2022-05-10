@@ -79,6 +79,7 @@ class InventoryTransfer
         if ($this->getInventoryTransferOrderID() != null) {
             $arr_query = array_merge($arr_query, ["inventoryTransferOrderID" => $this->getInventoryTransferOrderID()]);
         }
+
         if ($this->getNotes() != null) {
             $arr_query = array_merge($arr_query, ["notes" => $this->getNotes()]);
         }
