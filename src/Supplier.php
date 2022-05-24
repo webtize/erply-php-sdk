@@ -26,6 +26,11 @@ class Supplier
     private $vatrateID = null;
     private $vatNumber = null;
     private $fax = null;
+    private $bankName = null;
+    private $bankAccountNumber = null;
+    private $bankIBAN = null;
+    private $bankSWIFT = null;
+    private $deliveryTermsID = null;
     private $paymentDays = null;
     private $code = null;
     private $integrationCode = null;
@@ -36,43 +41,43 @@ class Supplier
     private $currencyCode = null;
     private $notes = null;
     private $GLN = null;
+    private $attributes = null;
+    private $website = null;
+    private $skype = null;
 
     /**
      * @return null
      */
-    public function getNotes()
+    public function getSkype()
     {
-        return $this->notes;
+        return $this->skype;
     }
 
     /**
-     * @param null $notes
+     * @param null $skype
      */
-    public function setNotes($notes): void
+    public function setSkype($skype): void
     {
-        $this->notes = $notes;
+        $this->skype = $skype;
     }
 
 
-    public function getVatNumber()
+    /**
+     * @return null
+     */
+    public function getWebsite()
     {
-        return $this->vatNumber;
+        return $this->website;
     }
 
-    public function setVatNumber($vatNumber): void
+    /**
+     * @param null $website
+     */
+    public function setWebsite($website): void
     {
-        $this->vatNumber = $vatNumber;
+        $this->website = $website;
     }
 
-    public function getPaymentDays()
-    {
-        return $this->paymentDays;
-    }
-
-    public function setPaymentDays($paymentDays): void
-    {
-        $this->paymentDays = $paymentDays;
-    }
 
     public function getQuery($bulk)
     {
@@ -156,6 +161,32 @@ class Supplier
         }
         if ($this->getNotes() != null) {
             $arr_query = array_merge($arr_query, ["notes" => $this->getNotes()]);
+        }
+        if ($this->getBankName() != null) {
+            $arr_query = array_merge($arr_query, ["bankName" => $this->getBankName()]);
+        }
+        if ($this->getBankAccountNumber() != null) {
+            $arr_query = array_merge($arr_query, ["bankAccountNumber" => $this->getBankAccountNumber()]);
+        }
+        if ($this->getBankIBAN() != null) {
+            $arr_query = array_merge($arr_query, ["bankIBAN" => $this->getBankIBAN()]);
+        }
+        if ($this->getBankSWIFT() != null) {
+            $arr_query = array_merge($arr_query, ["bankSWIFT" => $this->getBankSWIFT()]);
+        }
+        if ($this->getSkype() != null) {
+            $arr_query = array_merge($arr_query, ["skype" => $this->getSkype()]);
+        }
+        if ($this->getWebsite() != null) {
+            $arr_query = array_merge($arr_query, ["website" => $this->getWebsite()]);
+        }
+        if ($this->getDeliveryTermsID() != null) {
+            $arr_query = array_merge($arr_query, ["deliveryTermsID" => $this->getDeliveryTermsID()]);
+        }
+        if ($this->getAttributes() != null) {
+            foreach ($this->getAttributes() as $key => $attribute) {
+                $arr_query = array_merge($arr_query, [$key => $attribute]);
+            }
         }
         if ($this->getRequestID() != null) {
             $arr_query = array_merge($arr_query, ["requestID" => $this->getRequestID()]);
@@ -255,8 +286,26 @@ class Supplier
             if (property_exists($record, "currencyCode")) {
                 $this->currencyCode = $record->currencyCode;
             }
+            if (property_exists($record, "bankName")) {
+                $this->bankName = $record->bankName;
+            }
+            if (property_exists($record, "bankAccountNumber")) {
+                $this->bankAccountNumber = $record->bankAccountNumber;
+            }
+            if (property_exists($record, "bankIBAN")) {
+                $this->bankIBAN = $record->bankIBAN;
+            }
+            if (property_exists($record, "bankSWIFT")) {
+                $this->bankSWIFT = $record->bankSWIFT;
+            }
             if (property_exists($record, "GLN")) {
                 $this->GLN = $record->GLN;
+            }
+            if (property_exists($record, "deliveryTermsID")) {
+                $this->deliveryTermsID = $record->deliveryTermsID;
+            }
+            if (property_exists($record, "attributes")) {
+                $this->attributes = $record->attributes;
             }
         }
     }
@@ -314,6 +363,139 @@ class Supplier
     public function getFirstName()
     {
         return $this->firstName;
+    }
+
+    /**
+     * @return null
+     */
+    public function getNotes()
+    {
+        return $this->notes;
+    }
+
+    /**
+     * @param null $notes
+     */
+    public function setNotes($notes): void
+    {
+        $this->notes = $notes;
+    }
+
+    /**
+     * @return null
+     */
+    public function getBankName()
+    {
+        return $this->bankName;
+    }
+
+    /**
+     * @param null $bankName
+     */
+    public function setBankName($bankName): void
+    {
+        $this->bankName = $bankName;
+    }
+
+    /**
+     * @return null
+     */
+    public function getBankAccountNumber()
+    {
+        return $this->bankAccountNumber;
+    }
+
+    /**
+     * @param null $bankAccountNumber
+     */
+    public function setBankAccountNumber($bankAccountNumber): void
+    {
+        $this->bankAccountNumber = $bankAccountNumber;
+    }
+
+    /**
+     * @return null
+     */
+    public function getBankIBAN()
+    {
+        return $this->bankIBAN;
+    }
+
+    /**
+     * @param null $bankIBAN
+     */
+    public function setBankIBAN($bankIBAN): void
+    {
+        $this->bankIBAN = $bankIBAN;
+    }
+
+    /**
+     * @return null
+     */
+    public function getBankSWIFT()
+    {
+        return $this->bankSWIFT;
+    }
+
+    /**
+     * @param null $bankSWIFT
+     */
+    public function setBankSWIFT($bankSWIFT): void
+    {
+        $this->bankSWIFT = $bankSWIFT;
+    }
+
+    /**
+     * @return null
+     */
+    public function getDeliveryTermsID()
+    {
+        return $this->deliveryTermsID;
+    }
+
+    /**
+     * @param null $deliveryTermsID
+     */
+    public function setDeliveryTermsID($deliveryTermsID): void
+    {
+        $this->deliveryTermsID = $deliveryTermsID;
+    }
+
+    /**
+     * @return null
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * @param null $attributes
+     */
+    public function setAttributes($attributes): void
+    {
+        $this->attributes = $attributes;
+    }
+
+
+    public function getVatNumber()
+    {
+        return $this->vatNumber;
+    }
+
+    public function setVatNumber($vatNumber): void
+    {
+        $this->vatNumber = $vatNumber;
+    }
+
+    public function getPaymentDays()
+    {
+        return $this->paymentDays;
+    }
+
+    public function setPaymentDays($paymentDays): void
+    {
+        $this->paymentDays = $paymentDays;
     }
 
     public function setFirstName($firstName)
