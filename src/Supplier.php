@@ -44,6 +44,23 @@ class Supplier
     private $attributes = null;
     private $website = null;
     private $skype = null;
+    private $birthday = null;
+
+    /**
+     * @return null
+     */
+    public function getBirthday()
+    {
+        return $this->birthday;
+    }
+
+    /**
+     * @param null $birthday
+     */
+    public function setBirthday($birthday): void
+    {
+        $this->birthday = $birthday;
+    }
 
     /**
      * @return null
@@ -177,6 +194,9 @@ class Supplier
         if ($this->getSkype() != null) {
             $arr_query = array_merge($arr_query, ["skype" => $this->getSkype()]);
         }
+        if ($this->getBirthday() != null) {
+            $arr_query = array_merge($arr_query, ["birthday" => $this->getBirthday()]);
+        }
         if ($this->getWebsite() != null) {
             $arr_query = array_merge($arr_query, ["website" => $this->getWebsite()]);
         }
@@ -219,6 +239,9 @@ class Supplier
 
             if (property_exists($record, "id")) {
                 $this->id = $record->id;
+            }
+            if (property_exists($record, "birthday")) {
+                $this->birthday = $record->birthday;
             }
             if (property_exists($record, "vatNumber")) {
                 $this->vatNumber = $record->vatNumber;
