@@ -221,6 +221,25 @@ class Customer
         $this->vatNumber = $vatNumber;
     }
 
+    private $notes = null;
+
+    /**
+     * @return null
+     */
+    public function getNotes()
+    {
+        return $this->notes;
+    }
+
+    /**
+     * @param null $notes
+     */
+    public function setNotes($notes): void
+    {
+        $this->notes = $notes;
+    }
+
+
     private $bankName = null;
     private $bankAccountNumber = null;
     private $bankIBAN = null;
@@ -240,6 +259,9 @@ class Customer
         }
         if ($this->getPaymentDays() != null) {
             $arr_query = array_merge($arr_query, ["paymentDays" => $this->getPaymentDays()]);
+        }
+        if ($this->getNotes() != null) {
+            $arr_query = array_merge($arr_query, ["notes" => $this->getNotes()]);
         }
         if ($this->getBankName() != null) {
             $arr_query = array_merge($arr_query, ["bankName" => $this->getBankName()]);
@@ -510,6 +532,7 @@ class Customer
         $this->requestID = $requestID;
     }
 
+
     public function __construct($record = null)
     {
         if ($record != null) {
@@ -521,6 +544,9 @@ class Customer
             }
             if (property_exists($record, "website")) {
                 $this->website = $record->website;
+            }
+            if (property_exists($record, "notes")) {
+                $this->notes = $record->notes;
             }
             if (property_exists($record, "vatNumber")) {
                 $this->vatNumber = $record->vatNumber;
