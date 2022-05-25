@@ -246,6 +246,13 @@ class Customer
     private $bankSWIFT = null;
     private $attributes = null;
 
+
+    private $customerManagerName = null;
+    private $jobTitleName = null;
+    private $employerName = null;
+    private $businessAreaID = null;
+    private $businessAreaName = null;
+
     public function getQuery($bulk)
     {
         $arr_query = [];
@@ -259,6 +266,21 @@ class Customer
         }
         if ($this->getPaymentDays() != null) {
             $arr_query = array_merge($arr_query, ["paymentDays" => $this->getPaymentDays()]);
+        }
+        if ($this->getPaymentDays() != null) {
+            $arr_query = array_merge($arr_query, ["customerManagerName" => $this->getCustomerManagerName()]);
+        }
+        if ($this->getPaymentDays() != null) {
+            $arr_query = array_merge($arr_query, ["jobTitleName" => $this->getJobTitleName()]);
+        }
+        if ($this->getPaymentDays() != null) {
+            $arr_query = array_merge($arr_query, ["employerName" => $this->getEmployerName()]);
+        }
+        if ($this->getPaymentDays() != null) {
+            $arr_query = array_merge($arr_query, ["businessAreaID" => $this->getBusinessAreaID()]);
+        }
+        if ($this->getPaymentDays() != null) {
+            $arr_query = array_merge($arr_query, ["businessAreaName" => $this->getBusinessAreaName()]);
         }
         if ($this->getNotes() != null) {
             $arr_query = array_merge($arr_query, ["notes" => $this->getNotes()]);
@@ -532,6 +554,86 @@ class Customer
         $this->requestID = $requestID;
     }
 
+    /**
+     * @return null
+     */
+    public function getCustomerManagerName()
+    {
+        return $this->customerManagerName;
+    }
+
+    /**
+     * @param null $customerManagerName
+     */
+    public function setCustomerManagerName($customerManagerName): void
+    {
+        $this->customerManagerName = $customerManagerName;
+    }
+
+    /**
+     * @return null
+     */
+    public function getJobTitleName()
+    {
+        return $this->jobTitleName;
+    }
+
+    /**
+     * @param null $jobTitleName
+     */
+    public function setJobTitleName($jobTitleName): void
+    {
+        $this->jobTitleName = $jobTitleName;
+    }
+
+    /**
+     * @return null
+     */
+    public function getEmployerName()
+    {
+        return $this->employerName;
+    }
+
+    /**
+     * @param null $employerName
+     */
+    public function setEmployerName($employerName): void
+    {
+        $this->employerName = $employerName;
+    }
+
+    /**
+     * @return null
+     */
+    public function getBusinessAreaID()
+    {
+        return $this->businessAreaID;
+    }
+
+    /**
+     * @param null $businessAreaID
+     */
+    public function setBusinessAreaID($businessAreaID): void
+    {
+        $this->businessAreaID = $businessAreaID;
+    }
+
+    /**
+     * @return null
+     */
+    public function getBusinessAreaName()
+    {
+        return $this->businessAreaName;
+    }
+
+    /**
+     * @param null $businessAreaName
+     */
+    public function setBusinessAreaName($businessAreaName): void
+    {
+        $this->businessAreaName = $businessAreaName;
+    }
+
 
     public function __construct($record = null)
     {
@@ -541,6 +643,23 @@ class Customer
             }
             if (property_exists($record, "id")) {
                 $this->id = $record->id;
+            }
+
+            if (property_exists($record, "employerName")) {
+                $this->employerName = $record->employerName;
+            }
+            if (property_exists($record, "businessAreaID")) {
+                $this->businessAreaID = $record->businessAreaID;
+            }
+            if (property_exists($record, "businessAreaName")) {
+                $this->businessAreaName = $record->businessAreaName;
+            }
+
+            if (property_exists($record, "jobTitleName")) {
+                $this->jobTitleName = $record->jobTitleName;
+            }
+            if (property_exists($record, "customerManagerName")) {
+                $this->customerManagerName = $record->customerManagerName;
             }
             if (property_exists($record, "website")) {
                 $this->website = $record->website;
