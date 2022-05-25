@@ -87,6 +87,24 @@ class Customer
     private $priceListID3 = null;
     private $clientManagerID = null;
     private $customerManagerID = null;
+    private $website = null;
+
+    /**
+     * @return null
+     */
+    public function getWebsite()
+    {
+        return $this->website;
+    }
+
+    /**
+     * @param null $website
+     */
+    public function setWebsite($website): void
+    {
+        $this->website = $website;
+    }
+
 
     /**
      * @return null
@@ -103,7 +121,6 @@ class Customer
     {
         $this->companyID = $companyID;
     }
-
 
 
     /**
@@ -204,6 +221,11 @@ class Customer
         $this->vatNumber = $vatNumber;
     }
 
+    private $bankName = null;
+    private $bankAccountNumber = null;
+    private $bankIBAN = null;
+    private $bankSWIFT = null;
+    private $attributes = null;
 
     public function getQuery($bulk)
     {
@@ -218,6 +240,23 @@ class Customer
         }
         if ($this->getPaymentDays() != null) {
             $arr_query = array_merge($arr_query, ["paymentDays" => $this->getPaymentDays()]);
+        }
+        if ($this->getBankName() != null) {
+            $arr_query = array_merge($arr_query, ["bankName" => $this->getBankName()]);
+        }
+        if ($this->getBankAccountNumber() != null) {
+            $arr_query = array_merge($arr_query, ["bankAccountNumber" => $this->getBankAccountNumber()]);
+        }
+        if ($this->getBankIBAN() != null) {
+            $arr_query = array_merge($arr_query, ["bankIBAN" => $this->getBankIBAN()]);
+        }
+        if ($this->getAttributes() != null) {
+            foreach ($this->getAttributes() as $key => $attribute) {
+                $arr_query = array_merge($arr_query, [$key => $attribute]);
+            }
+        }
+        if ($this->getBankSWIFT() != null) {
+            $arr_query = array_merge($arr_query, ["bankSWIFT" => $this->getBankSWIFT()]);
         }
         if ($this->getCompanyID() != null) {
             $arr_query = array_merge($arr_query, ["companyID" => $this->getCompanyID()]);
@@ -411,6 +450,9 @@ class Customer
         if ($this->getHomeStoreID() != null) {
             $arr_query = array_merge($arr_query, ["homeStoreID" => $this->getHomeStoreID()]);
         }
+        if ($this->getWebsite() != null) {
+            $arr_query = array_merge($arr_query, ["website" => $this->getWebsite()]);
+        }
         if ($this->getGender() != null) {
             $arr_query = array_merge($arr_query, ["gender" => $this->getGender()]);
         }
@@ -477,6 +519,9 @@ class Customer
             if (property_exists($record, "id")) {
                 $this->id = $record->id;
             }
+            if (property_exists($record, "website")) {
+                $this->website = $record->website;
+            }
             if (property_exists($record, "vatNumber")) {
                 $this->vatNumber = $record->vatNumber;
             }
@@ -512,6 +557,21 @@ class Customer
             }
             if (property_exists($record, "eInvoiceEmail")) {
                 $this->eInvoiceEmail = $record->eInvoiceEmail;
+            }
+            if (property_exists($record, "bankName")) {
+                $this->bankName = $record->bankName;
+            }
+            if (property_exists($record, "bankAccountNumber")) {
+                $this->bankAccountNumber = $record->bankAccountNumber;
+            }
+            if (property_exists($record, "bankIBAN")) {
+                $this->bankIBAN = $record->bankIBAN;
+            }
+            if (property_exists($record, "bankSWIFT")) {
+                $this->bankSWIFT = $record->bankSWIFT;
+            }
+            if (property_exists($record, "attributes")) {
+                $this->attributes = $record->attributes;
             }
             if (property_exists($record, "emailEnabled")) {
                 $this->emailEnabled = $record->emailEnabled;
@@ -688,6 +748,86 @@ class Customer
                 $this->externalIDs = $record->externalIDs;
             }
         }
+    }
+
+    /**
+     * @return null
+     */
+    public function getBankName()
+    {
+        return $this->bankName;
+    }
+
+    /**
+     * @param null $bankName
+     */
+    public function setBankName($bankName): void
+    {
+        $this->bankName = $bankName;
+    }
+
+    /**
+     * @return null
+     */
+    public function getBankAccountNumber()
+    {
+        return $this->bankAccountNumber;
+    }
+
+    /**
+     * @param null $bankAccountNumber
+     */
+    public function setBankAccountNumber($bankAccountNumber): void
+    {
+        $this->bankAccountNumber = $bankAccountNumber;
+    }
+
+    /**
+     * @return null
+     */
+    public function getBankIBAN()
+    {
+        return $this->bankIBAN;
+    }
+
+    /**
+     * @param null $bankIBAN
+     */
+    public function setBankIBAN($bankIBAN): void
+    {
+        $this->bankIBAN = $bankIBAN;
+    }
+
+    /**
+     * @return null
+     */
+    public function getBankSWIFT()
+    {
+        return $this->bankSWIFT;
+    }
+
+    /**
+     * @param null $bankSWIFT
+     */
+    public function setBankSWIFT($bankSWIFT): void
+    {
+        $this->bankSWIFT = $bankSWIFT;
+    }
+
+    /**
+     * @return null
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * @param null $attributes
+     */
+    public function setAttributes($attributes): void
+    {
+        $this->attributes = $attributes;
     }
 
     public function getId()
