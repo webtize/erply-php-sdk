@@ -512,6 +512,28 @@ class Customer
         if ($this->getPriceListID3() != null) {
             $arr_query = array_merge($arr_query, ["priceListID3" => $this->getPriceListID3()]);
         }
+
+        if ($this->getDefaultAssociationID() != null) {
+            $arr_query = array_merge($arr_query, ["defaultAssociationID" => $this->getDefaultAssociationID()]);
+        }
+        if ($this->getDefaultAssociationName() != null) {
+            $arr_query = array_merge($arr_query, ["defaultAssociationName" => $this->getDefaultAssociationName()]);
+        }
+        if ($this->getDefaultProfessionalID() != null) {
+            $arr_query = array_merge($arr_query, ["defaultProfessionalID" => $this->getDefaultProfessionalID()]);
+        }
+        if ($this->getDefaultProfessionalName() != null) {
+            $arr_query = array_merge($arr_query, ["defaultProfessionalName" => $this->getDefaultProfessionalName()]);
+        }
+
+        if ($this->getCreditLimit() != null) {
+            $arr_query = array_merge($arr_query, ["creditLimit" => $this->getCreditLimit()]);
+        }
+
+        if ($this->getCreditAllowed() != null) {
+            $arr_query = array_merge($arr_query, ["creditAllowed" => $this->getCreditAllowed()]);
+        }
+
         if ($this->getRequestID() != null) {
             $arr_query = array_merge($arr_query, ["requestID" => $this->getRequestID()]);
         }
@@ -634,6 +656,19 @@ class Customer
         $this->businessAreaName = $businessAreaName;
     }
 
+    private $addresses = null;
+    private $contactPersons = null;
+    private $defaultAssociationID = null;
+    private $defaultAssociationName = null;
+    private $defaultProfessionalID = null;
+    private $defaultProfessionalName = null;
+    private $associations = null;
+    private $professionals = null;
+    private $longAttributes = null;
+    private $actualBalance = null;
+    private $creditLimit = null;
+    private $availableCredit = null;
+    private $creditAllowed = null;
 
     public function __construct($record = null)
     {
@@ -641,8 +676,51 @@ class Customer
             if (property_exists($record, "requestID")) {
                 $this->requestID = $record->requestID;
             }
+            if (property_exists($record, "associations")) {
+                $this->associations = $record->associations;
+            }
+            if (property_exists($record, "creditAllowed")) {
+                $this->creditAllowed = $record->creditAllowed;
+            }
+            if (property_exists($record, "availableCredit")) {
+                $this->availableCredit = $record->availableCredit;
+            }
+            if (property_exists($record, "actualBalance")) {
+                $this->actualBalance = $record->actualBalance;
+            }
+            if (property_exists($record, "creditLimit")) {
+                $this->creditLimit = $record->creditLimit;
+            }
+            if (property_exists($record, "professionals")) {
+                $this->professionals = $record->professionals;
+            }
+            if (property_exists($record, "longAttributes")) {
+                $this->longAttributes = $record->longAttributes;
+            }
+            if (property_exists($record, "defaultAssociationID")) {
+                $this->defaultAssociationID = $record->defaultAssociationID;
+            }
+            if (property_exists($record, "defaultProfessionalName")) {
+                $this->defaultProfessionalName = $record->defaultProfessionalName;
+            }
+            if (property_exists($record, "defaultAssociationName")) {
+                $this->defaultAssociationName = $record->defaultAssociationName;
+            }
+
+            if (property_exists($record, "defaultProfessionalID")) {
+                $this->defaultProfessionalID = $record->defaultProfessionalID;
+            }
+
             if (property_exists($record, "id")) {
                 $this->id = $record->id;
+            }
+
+            if (property_exists($record, "contactPersons")) {
+                $this->contactPersons = $record->contactPersons;
+            }
+
+            if (property_exists($record, "addresses")) {
+                $this->addresses = $record->addresses;
             }
 
             if (property_exists($record, "employerName")) {
@@ -917,6 +995,214 @@ class Customer
     public function getBankAccountNumber()
     {
         return $this->bankAccountNumber;
+    }
+
+    /**
+     * @return null
+     */
+    public function getAddresses()
+    {
+        return $this->addresses;
+    }
+
+    /**
+     * @param null $addresses
+     */
+    public function setAddresses($addresses): void
+    {
+        $this->addresses = $addresses;
+    }
+
+    /**
+     * @return null
+     */
+    public function getContactPersons()
+    {
+        return $this->contactPersons;
+    }
+
+    /**
+     * @param null $contactPersons
+     */
+    public function setContactPersons($contactPersons): void
+    {
+        $this->contactPersons = $contactPersons;
+    }
+
+    /**
+     * @return null
+     */
+    public function getDefaultAssociationID()
+    {
+        return $this->defaultAssociationID;
+    }
+
+    /**
+     * @param null $defaultAssociationID
+     */
+    public function setDefaultAssociationID($defaultAssociationID): void
+    {
+        $this->defaultAssociationID = $defaultAssociationID;
+    }
+
+    /**
+     * @return null
+     */
+    public function getDefaultAssociationName()
+    {
+        return $this->defaultAssociationName;
+    }
+
+    /**
+     * @param null $defaultAssociationName
+     */
+    public function setDefaultAssociationName($defaultAssociationName): void
+    {
+        $this->defaultAssociationName = $defaultAssociationName;
+    }
+
+    /**
+     * @return null
+     */
+    public function getDefaultProfessionalID()
+    {
+        return $this->defaultProfessionalID;
+    }
+
+    /**
+     * @param null $defaultProfessionalID
+     */
+    public function setDefaultProfessionalID($defaultProfessionalID): void
+    {
+        $this->defaultProfessionalID = $defaultProfessionalID;
+    }
+
+    /**
+     * @return null
+     */
+    public function getDefaultProfessionalName()
+    {
+        return $this->defaultProfessionalName;
+    }
+
+    /**
+     * @param null $defaultProfessionalName
+     */
+    public function setDefaultProfessionalName($defaultProfessionalName): void
+    {
+        $this->defaultProfessionalName = $defaultProfessionalName;
+    }
+
+    /**
+     * @return null
+     */
+    public function getAssociations()
+    {
+        return $this->associations;
+    }
+
+    /**
+     * @param null $associations
+     */
+    public function setAssociations($associations): void
+    {
+        $this->associations = $associations;
+    }
+
+    /**
+     * @return null
+     */
+    public function getProfessionals()
+    {
+        return $this->professionals;
+    }
+
+    /**
+     * @param null $professionals
+     */
+    public function setProfessionals($professionals): void
+    {
+        $this->professionals = $professionals;
+    }
+
+    /**
+     * @return null
+     */
+    public function getLongAttributes()
+    {
+        return $this->longAttributes;
+    }
+
+    /**
+     * @param null $longAttributes
+     */
+    public function setLongAttributes($longAttributes): void
+    {
+        $this->longAttributes = $longAttributes;
+    }
+
+    /**
+     * @return null
+     */
+    public function getActualBalance()
+    {
+        return $this->actualBalance;
+    }
+
+    /**
+     * @param null $actualBalance
+     */
+    public function setActualBalance($actualBalance): void
+    {
+        $this->actualBalance = $actualBalance;
+    }
+
+    /**
+     * @return null
+     */
+    public function getCreditLimit()
+    {
+        return $this->creditLimit;
+    }
+
+    /**
+     * @param null $creditLimit
+     */
+    public function setCreditLimit($creditLimit): void
+    {
+        $this->creditLimit = $creditLimit;
+    }
+
+    /**
+     * @return null
+     */
+    public function getAvailableCredit()
+    {
+        return $this->availableCredit;
+    }
+
+    /**
+     * @param null $availableCredit
+     */
+    public function setAvailableCredit($availableCredit): void
+    {
+        $this->availableCredit = $availableCredit;
+    }
+
+    /**
+     * @return null
+     */
+    public function getCreditAllowed()
+    {
+        return $this->creditAllowed;
+    }
+
+    /**
+     * @param null $creditAllowed
+     */
+    public function setCreditAllowed($creditAllowed): void
+    {
+        $this->creditAllowed = $creditAllowed;
     }
 
     /**
