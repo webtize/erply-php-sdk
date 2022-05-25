@@ -45,6 +45,24 @@ class Supplier
     private $website = null;
     private $skype = null;
     private $birthday = null;
+    private $companyID = null;
+
+    /**
+     * @return null
+     */
+    public function getCompanyID()
+    {
+        return $this->companyID;
+    }
+
+    /**
+     * @param null $companyID
+     */
+    public function setCompanyID($companyID): void
+    {
+        $this->companyID = $companyID;
+    }
+
 
     /**
      * @return null
@@ -167,6 +185,9 @@ class Supplier
         if ($this->getCountryCode() != null) {
             $arr_query = array_merge($arr_query, ["countryCode" => $this->getCountryCode()]);
         }
+        if ($this->getCompanyID() != null) {
+            $arr_query = array_merge($arr_query, ["companyID" => $this->getCompanyID()]);
+        }
         if ($this->getAddress() != null) {
             $arr_query = array_merge($arr_query, ["address" => $this->getAddress()]);
         }
@@ -235,6 +256,10 @@ class Supplier
 
             if (property_exists($record, "notes")) {
                 $this->notes = $record->notes;
+            }
+
+            if (property_exists($record, "companyID")) {
+                $this->companyID = $record->companyID;
             }
 
             if (property_exists($record, "id")) {
