@@ -464,6 +464,7 @@ class ErplyAPI
         return new CustomerRewardPoints($this->getSingleData($parameters));
     }
 
+
     public function getInventoryRegistrations(array $parameters = [])
     {
         $parameters = array_merge($parameters, ['request' => 'getInventoryRegistrations']);
