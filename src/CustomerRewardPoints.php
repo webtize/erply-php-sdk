@@ -18,10 +18,12 @@ class CustomerRewardPoints
             if (property_exists($response, 'records')) {
                 if ($this->status->getRequest() == 'addCustomerRewardPoints' || $this->status->getRequestName() == 'addCustomerRewardPoints') {
                     $arr_records = [];
-                    foreach ($response->records as $record) {
-                        array_push($arr_records, new CustomerRewardPoint($record));
+                    if ($response->records != null) {
+                        foreach ($response->records as $record) {
+                            array_push($arr_records, new CustomerRewardPoint($record));
+                        }
+                        $this->records = $arr_records;
                     }
-                    $this->records = $arr_records;
                 }
             }
         }
