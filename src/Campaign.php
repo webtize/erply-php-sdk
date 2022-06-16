@@ -17,6 +17,7 @@ class Campaign
     private $name = null;
     private $type = null;
     private $warehouseID = null;
+    private $warehouseIDs = null;
     private $tierID = null;
     private $purchasedProductGroupID = null;
     private $purchasedBrandID = null;
@@ -315,6 +316,9 @@ class Campaign
             if (property_exists($record, "campaignID")) {
                 $this->campaignID = $record->campaignID;
             }
+            if (property_exists($record, "warehouseIDs")) {
+                $this->warehouseIDs = $record->warehouseIDs;
+            }
             if (property_exists($record, "startDate")) {
                 $this->startDate = $record->startDate;
             }
@@ -584,6 +588,14 @@ class Campaign
     public function setTierID($tierID)
     {
         $this->tierID = $tierID;
+    }
+
+    /**
+     * @return null
+     */
+    public function getWarehouseIDs()
+    {
+        return $this->warehouseIDs;
     }
 
     public function getPurchasedProductGroupID()
