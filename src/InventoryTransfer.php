@@ -31,6 +31,7 @@ class InventoryTransfer
     private $lastModified = null;
     private $type = null;
     private $rows = null;
+    private $attributes = null;
 
     public function getQuery($bulk)
     {
@@ -168,6 +169,9 @@ class InventoryTransfer
             if (property_exists($record, "notes")) {
                 $this->notes = $record->notes;
             }
+            if (property_exists($record, "attributes")) {
+                $this->attributes = $record->attributes;
+            }
             if (property_exists($record, "status")) {
                 $this->status = $record->status;
             }
@@ -233,6 +237,13 @@ class InventoryTransfer
     {
         return $this->warehouseToID;
     }
+
+
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
 
     public function setWarehouseToID($warehouseToID)
     {

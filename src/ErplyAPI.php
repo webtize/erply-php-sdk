@@ -718,7 +718,6 @@ class ErplyAPI
         } else {
             print_r('Maximum api calls reached');
             print_r("Sleeping For 5 Min");
-            sleep(300);
         }
     }
 
@@ -735,7 +734,6 @@ class ErplyAPI
         } else {
             print_r('Maximum api calls reached');
             print_r("Sleeping For 5 Min");
-            sleep(300);
         }
     }
 
@@ -792,7 +790,6 @@ class ErplyAPI
         if ($response->status->errorCode == 1002) {
             print_r('Maximum api calls reached');
             print_r("Sleeping For 5 Min");
-            sleep(300);
         }
         if (isset($response->records[0]->sessionKey)) {
             $this->setSessionKey($response->records[0]->sessionKey);
@@ -815,7 +812,6 @@ class ErplyAPI
         if ($response->status->errorCode == 1002) {
             print_r('Maximum api calls reached');
             print_r("Sleeping For 5 Min");
-            sleep(300);
         }
         if (isset($response->records[0]->sessionKey)) {
             $this->setSessionKey($response->records[0]->sessionKey);
