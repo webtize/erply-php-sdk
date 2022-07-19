@@ -787,6 +787,7 @@ class ErplyAPI
         $parameters['sessionLength'] = 86400;
         $this->setCode(env('ERPLY_CLIENTID'));
         $response = $this->sendSingle($parameters);
+
         if ($response->status->errorCode == 1002) {
             print_r('Maximum api calls reached');
             print_r("Sleeping For 5 Min");
@@ -795,6 +796,7 @@ class ErplyAPI
             $this->setSessionKey($response->records[0]->sessionKey);
             $this->setUrl($response->records[0]->loginUrl);
         }
+
         return $response;
     }
 
@@ -830,8 +832,8 @@ class ErplyAPI
         $requestParams['sessionKey'] = $this->getSessionKey();
         $requestParams['clientCode'] = $this->getCode();
         $requestParams['version'] = '1.0';
-        $response = $this->sendPostDataToErply($requestParams); //TODO Handle the exception here
-        return $response;
+        //TODO Handle the exception here
+        return $this->sendPostDataToErply($requestParams);
     }
 
     private function sendPostDataToErply($requestParams)
@@ -858,11 +860,22 @@ class ErplyAPI
                 ],
                 'version' => 1.1,
             ]);
+            return json_decode($response->getBody());
         } catch (\Exception $e) {
             print_r($e->getMessage());
+
+            $status = [
+                'responseStatus' => 'error',
+                'errorField' => $e->getMessage()
+            ];
+            $status = (object)$status;
+            $arr = [
+                'status' => $status,
+                'records' => []
+            ];
+            return (object)$arr;
         }
-        $response = json_decode($response->getBody());
-        return $response;
+
     }
 
     public function getCode()
