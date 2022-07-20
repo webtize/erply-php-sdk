@@ -866,7 +866,8 @@ class ErplyAPI
 
             $status = [
                 'responseStatus' => 'error',
-                'errorField' => $e->getMessage()
+                'errorField' => $e->getMessage(),
+                'errorCode' => null
             ];
             $status = (object)$status;
             $arr = [
