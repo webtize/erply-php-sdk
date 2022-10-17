@@ -787,7 +787,7 @@ class ErplyAPI
         $parameters['sessionLength'] = 86400;
         $this->setCode(env('ERPLY_CLIENTID'));
         $response = $this->sendSingle($parameters);
-
+        $response = (object)$response;
         if ($response->status->errorCode == 1002) {
             print_r('Maximum api calls reached');
             print_r("Sleeping For 5 Min");
