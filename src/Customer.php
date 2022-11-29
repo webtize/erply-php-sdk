@@ -54,6 +54,7 @@ class Customer
     private $address2 = null;
     private $city = null;
     private $postalCode = null;
+    private $doNotSell = null;
     private $country = null;
     private $state = null;
     private $addressTypeID = null;
@@ -88,6 +89,23 @@ class Customer
     private $clientManagerID = null;
     private $customerManagerID = null;
     private $website = null;
+
+    /**
+     * @return null
+     */
+    public function getDoNotSell()
+    {
+        return $this->doNotSell;
+    }
+
+    /**
+     * @param null $doNotSell
+     */
+    public function setDoNotSell($doNotSell): void
+    {
+        $this->doNotSell = $doNotSell;
+    }
+
 
     /**
      * @return null
@@ -263,6 +281,9 @@ class Customer
         }
         if ($this->getId() != null) {
             $arr_query = array_merge($arr_query, ["id" => $this->getId()]);
+        }
+        if ($this->getDoNotSell() != null) {
+            $arr_query = array_merge($arr_query, ["doNotSell" => $this->getDoNotSell()]);
         }
         if ($this->getPaymentDays() != null) {
             $arr_query = array_merge($arr_query, ["paymentDays" => $this->getPaymentDays()]);
@@ -693,6 +714,9 @@ class Customer
             }
             if (property_exists($record, "professionals")) {
                 $this->professionals = $record->professionals;
+            }
+            if (property_exists($record, "doNotSell")) {
+                $this->doNotSell = $record->doNotSell;
             }
             if (property_exists($record, "longAttributes")) {
                 $this->longAttributes = $record->longAttributes;

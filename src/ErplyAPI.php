@@ -772,8 +772,7 @@ class ErplyAPI
         $bulkRequestParams['clientCode'] = $this->code;
         $bulkRequestParams['version'] = '1.0';
         $bulkRequestParams['sessionKey'] = $this->sessionKey;
-        $response = $this->sendPostDataToErply($bulkRequestParams);
-        return $response;
+        return $this->sendPostDataToErply($bulkRequestParams);
     }
 
     public function verifySession(): \stdClass
@@ -829,6 +828,7 @@ class ErplyAPI
         } else {
             $requestParams = $this->getParameters();
         }
+
         $requestParams['sessionKey'] = $this->getSessionKey();
         $requestParams['clientCode'] = $this->getCode();
         $requestParams['version'] = '1.0';
