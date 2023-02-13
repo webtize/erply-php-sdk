@@ -16,6 +16,11 @@ class Product
     private $code = null;
     private $code2 = null;
     private $code3 = null;
+    private $code4 = null;
+    private $code5 = null;
+    private $code6 = null;
+    private $code7 = null;
+    private $code8 = null;
     private $supplierCode = null;
     private $groupID = null;
     private $price = null;
@@ -151,6 +156,21 @@ class Product
                 $this->name = $record->name;
             }
             if (property_exists($record, "code")) {
+                $this->code = $record->code;
+            }
+            if (property_exists($record, "code4")) {
+                $this->code = $record->code;
+            }
+            if (property_exists($record, "code5")) {
+                $this->code = $record->code;
+            }
+            if (property_exists($record, "code6")) {
+                $this->code = $record->code;
+            }
+            if (property_exists($record, "code7")) {
+                $this->code = $record->code;
+            }
+            if (property_exists($record, "code8")) {
                 $this->code = $record->code;
             }
             if (property_exists($record, "code2")) {
@@ -459,6 +479,21 @@ class Product
         }
         if ($this->getCode3() != null) {
             $arr_query = array_merge($arr_query, ["code3" => $this->getCode3()]);
+        }
+        if ($this->getCode4() != null) {
+            $arr_query = array_merge($arr_query, ["code4" => $this->getCode4()]);
+        }
+        if ($this->getCode5() != null) {
+            $arr_query = array_merge($arr_query, ["code5" => $this->getCode5()]);
+        }
+        if ($this->getCode6() != null) {
+            $arr_query = array_merge($arr_query, ["code6" => $this->getCode6()]);
+        }
+        if ($this->getCode7() != null) {
+            $arr_query = array_merge($arr_query, ["code7" => $this->getCode7()]);
+        }
+        if ($this->getCode8() != null) {
+            $arr_query = array_merge($arr_query, ["code8" => $this->getCode8()]);
         }
         if ($this->getSupplierCode() != null) {
             $arr_query = array_merge($arr_query, ["supplierCode" => $this->getSupplierCode()]);
@@ -887,6 +922,86 @@ class Product
     public function setNonRefundable($nonRefundable)
     {
         $this->nonRefundable = $nonRefundable;
+    }
+
+    /**
+     * @return null
+     */
+    public function getCode4()
+    {
+        return $this->code4;
+    }
+
+    /**
+     * @param null $code4
+     */
+    public function setCode4($code4): void
+    {
+        $this->code4 = $code4;
+    }
+
+    /**
+     * @return null
+     */
+    public function getCode5()
+    {
+        return $this->code5;
+    }
+
+    /**
+     * @param null $code5
+     */
+    public function setCode5($code5): void
+    {
+        $this->code5 = $code5;
+    }
+
+    /**
+     * @return null
+     */
+    public function getCode6()
+    {
+        return $this->code6;
+    }
+
+    /**
+     * @param null $code6
+     */
+    public function setCode6($code6): void
+    {
+        $this->code6 = $code6;
+    }
+
+    /**
+     * @return null
+     */
+    public function getCode7()
+    {
+        return $this->code7;
+    }
+
+    /**
+     * @param null $code7
+     */
+    public function setCode7($code7): void
+    {
+        $this->code7 = $code7;
+    }
+
+    /**
+     * @return null
+     */
+    public function getCode8()
+    {
+        return $this->code8;
+    }
+
+    /**
+     * @param null $code8
+     */
+    public function setCode8($code8): void
+    {
+        $this->code8 = $code8;
     }
 
     public function getManufacturerName()
