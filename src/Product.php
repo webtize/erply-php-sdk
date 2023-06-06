@@ -95,6 +95,7 @@ class Product
     private $purchasePrice = null;
     private $warehouses = null;
     private $productPackages = null;
+    private $temporaryUUID = null;
     private $registryNumber = null;
     private $alcoholPercentage = null;
     private $batches = null;
@@ -136,6 +137,22 @@ class Product
     public function setAddFields($addFields)
     {
         $this->addFields = $addFields;
+    }
+
+    /**
+     * @param null $temporaryUUID
+     */
+    public function setTemporaryUUID($temporaryUUID): void
+    {
+        $this->temporaryUUID = $temporaryUUID;
+    }
+
+    /**
+     * @return null
+     */
+    public function getTemporaryUUID()
+    {
+        return $this->temporaryUUID;
     }
 
     public function __construct($record = null)
@@ -464,6 +481,9 @@ class Product
         }
         if ($this->getProductID() != null) {
             $arr_query = array_merge($arr_query, ["productID" => $this->getProductID()]);
+        }
+        if ($this->getTemporaryUUID() != null) {
+            $arr_query = array_merge($arr_query, ["temporaryUUID" => $this->getTemporaryUUID()]);
         }
         if ($this->getRequestID() != null) {
             $arr_query = array_merge($arr_query, ["requestID" => $this->getRequestID()]);
