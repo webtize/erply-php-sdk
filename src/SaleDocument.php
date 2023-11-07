@@ -91,6 +91,7 @@ class SaleDocument
     private $transportTypeName = null;
     private $deliveryaddressTerms = null;
     private $deliveryTermsLocation = null;
+    private $deliveryTerms = null;
     private $euInvoiceType = null;
     private $paymentStatus = null;
     private $lastModifierUsername = null;
