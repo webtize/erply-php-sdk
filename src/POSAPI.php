@@ -12,6 +12,7 @@ use Webtize\ErplySDK\ErplyAPI;
 class POSAPI
 {
     public $endpoint;
+
     private $sessionKey;
     private $storeCode;
 
