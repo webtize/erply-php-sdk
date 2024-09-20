@@ -1,18 +1,22 @@
 <?php
 
-
 namespace Webtize\ErplySDK;
 
 use GuzzleHttp\Client;
 
-#require 'vendor/autoload.php';
-
 class SalesAPI
 {
-    public $endpoint;
+    private $endpoint;
     private $sessionKey;
     private $storeCode;
 
+    /**
+     * Private constructor for initializing the SalesAPI instance.
+     *
+     * @param string $endpoint The API endpoint URL.
+     * @param string $storeCode The store code.
+     * @param string $sessionKey The session key for authentication.
+     */
     private function __construct($endpoint, $storeCode, $sessionKey)
     {
         $this->endpoint = $endpoint;
@@ -20,38 +24,73 @@ class SalesAPI
         $this->storeCode = $storeCode;
     }
 
-
-    public function getSingle($link,$take =20, $skip=0)
+    /**
+     * Retrieve a single record from the API.
+     *
+     * @param string $link The API endpoint link.
+     * @param int $take The number of records to take.
+     * @param int $skip The number of records to skip.
+     * @return array|null The response from the API.
+     */
+    public function getSingle($link, $take = 20, $skip = 0)
     {
         $method = 'GET';
-        $para = [
+        $params = [
             'take' => $take,
             'skip' => $skip,
             'withTotalCount' => true
         ];
 
-        return $this->execute($method, $link, $para);
+        return $this->execute($method, $link, $params);
     }
+
+    /**
+     * Get an instance of the SalesAPI using the Erply API.
+     *
+     * @return SalesAPI|null An instance of the SalesAPI class.
+     */
     public static function getSalesInstance()
     {
         $erply = ErplyAPI::getErplyInstance();
         $serviceRet = $erply->getServiceEndpoints();
+        $salesEndPoint = null;
+
         if (isset($serviceRet->records) && is_array($serviceRet->records) && isset($serviceRet->records[0]->sales)) {
-            $salesEndPoint = substr($serviceRet->records[0]->sales->url, 0, -1);
+            $salesEndPoint = rtrim($serviceRet->records[0]->sales->url, '/');
         }
-        return new SalesAPI($salesEndPoint, $erply->getCode(), $erply->getSessionkey());
+
+        return $salesEndPoint ? new SalesAPI($salesEndPoint, $erply->getCode(), $erply->getSessionKey()) : null;
     }
 
+    /**
+     * Get an instance of the SalesAPI using Erply API with specific credentials.
+     *
+     * @param string $code The store code.
+     * @param string $username The username.
+     * @param string $password The password.
+     * @return SalesAPI|null An instance of the SalesAPI class.
+     */
     public static function getSalesInstance2($code, $username, $password)
     {
         $erply = ErplyAPI::getErplyInstance2($code, $username, $password);
         $serviceRet = $erply->getServiceEndpoints();
+        $salesEndPoint = null;
+
         if (isset($serviceRet->records) && is_array($serviceRet->records) && isset($serviceRet->records[0]->sales)) {
-            $salesEndPoint = substr($serviceRet->records[0]->sales->url, 0, -1);
+            $salesEndPoint = rtrim($serviceRet->records[0]->sales->url, '/');
         }
-        return new SalesAPI($salesEndPoint, $erply->getCode(), $erply->getSessionkey());
+
+        return $salesEndPoint ? new SalesAPI($salesEndPoint, $erply->getCode(), $erply->getSessionKey()) : null;
     }
 
+    /**
+     * Execute a request to the API using Guzzle HTTP client.
+     *
+     * @param string $method The HTTP method (GET, POST, etc.).
+     * @param string $link The API endpoint link.
+     * @param array $params The query parameters.
+     * @return array|null The response from the API.
+     */
     private function execute($method, $link, $params)
     {
         $client = new Client();
@@ -66,25 +105,31 @@ class SalesAPI
                 ],
                 'version' => 1.1,
             ]);
-            #print_r($response);
+
             return [
                 'status' => $this->getCount($response->getHeaders()),
                 'requests' => json_decode($response->getBody()->getContents())
             ];
         } catch (\Exception $e) {
-
-            echo $e->getMessage();
-
+            echo "Error: " . $e->getMessage();
+            return null;
         }
     }
 
+    /**
+     * Execute a POST request to the API using cURL.
+     *
+     * @param string $link The API endpoint link.
+     * @param array $params The payload parameters.
+     * @return mixed The response from the API.
+     */
     private function saveExecute($link, $params)
     {
-        $headers = array(
-            'Content-Type:application/json',
-            'clientCode:' . $this->storeCode,
-            'sessionKey:' . $this->sessionKey
-        );
+        $headers = [
+            'Content-Type: application/json',
+            'clientCode: ' . $this->storeCode,
+            'sessionKey: ' . $this->sessionKey
+        ];
         $url = $this->endpoint . $link;
         $payload = json_encode($params);
 
@@ -94,17 +139,22 @@ class SalesAPI
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($ch);
         curl_close($ch);
+
         return json_decode($result);
     }
 
-    private function getCount($array)
+    /**
+     * Extract count information from the API response headers.
+     *
+     * @param array $headers The response headers.
+     * @return array The extracted count information.
+     */
+    private function getCount($headers)
     {
         $request = [];
-        foreach ($array as $key => $item) {
-            $request = array_merge($request, [$key => $item[0]]);
+        foreach ($headers as $key => $item) {
+            $request[$key] = $item[0];
         }
         return $request;
     }
-
-
 }
