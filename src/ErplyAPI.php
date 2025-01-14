@@ -14,11 +14,28 @@ use GuzzleHttp\Client;
 class ErplyAPI
 {
     private $code;
+    private $token;
     private $username;
     private $password;
     private $parameters = [];
     private $sessionKey = null;
     private $url = null;
+
+    /**
+     * @return mixed
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * @param mixed $token
+     */
+    public function setToken($token): void
+    {
+        $this->token = $token;
+    }
 
 
     public function saveAddresses($records)
@@ -793,6 +810,7 @@ class ErplyAPI
         }
         if (isset($response->records[0]->sessionKey)) {
             $this->setSessionKey($response->records[0]->sessionKey);
+            $this->setToken($response->records[0]->token);
             $this->setUrl($response->records[0]->loginUrl);
         }
 
@@ -816,6 +834,7 @@ class ErplyAPI
         }
         if (isset($response->records[0]->sessionKey)) {
             $this->setSessionKey($response->records[0]->sessionKey);
+            $this->setToken($response->records[0]->token);
             $this->setUrl($response->records[0]->loginUrl);
         }
         return $response;
