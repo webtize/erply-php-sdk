@@ -23,6 +23,7 @@ class InventoryRegistration
     private $date = null;
     private $inventoryTransactionDate = null;
     private $cause = null;
+    private $reasonID = null;
     private $confirmed = null;
     private $added = null;
     private $lastModified = null;
@@ -83,6 +84,9 @@ class InventoryRegistration
         }
         if ($this->getRows() != null) {
             $arr_query = array_merge($arr_query, ["rows" => $this->getRows()]);
+        }
+        if ($this->getReasonID() != null) {
+            $arr_query = array_merge($arr_query, ["reasonID" => $this->getReasonID()]);
         }
         if ($this->getRequestID() != null) {
             $arr_query = array_merge($arr_query, ["requestID" => $this->getRequestID()]);
@@ -153,6 +157,9 @@ class InventoryRegistration
             }
             if (property_exists($record, "lastModified")) {
                 $this->lastModified = $record->lastModified;
+            }
+            if (property_exists($record, "reasonID")) {
+                $this->reasonID = $record->reasonID;
             }
             if (property_exists($record, "rows")) {
                 $this->rows = $record->rows;
@@ -318,5 +325,21 @@ class InventoryRegistration
     public function setRows($rows)
     {
         $this->rows = $rows;
+    }
+
+    /**
+     * @return null
+     */
+    public function getReasonID()
+    {
+        return $this->reasonID;
+    }
+
+    /**
+     * @param null $reasonID
+     */
+    public function setReasonID($reasonID): void
+    {
+        $this->reasonID = $reasonID;
     }
 }
