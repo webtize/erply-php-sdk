@@ -51,7 +51,7 @@ class ReportAPI
         return new ReportAPI($reportEndpoint, $erply->getCode(), $erply->getSessionkey());
     }
 
-    private function execute($method, $link, $params)
+    public function execute($method, $link, $params)
     {
         $client = new Client();
         try {
