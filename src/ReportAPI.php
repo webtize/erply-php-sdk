@@ -24,6 +24,13 @@ class ReportAPI
         return new TransactionTotalByType($this->execute($method, $link, $params));
     }
 
+    public function getPaymentTotalByType($params = null)
+    {
+        $method = 'GET';
+        $link = '/v1/payments/total-by-type';
+        return new TransactionTotalByType($this->execute($method, $link, $params));
+    }
+
     public static function getReportInstance()
     {
         $erply = ErplyAPI::getErplyInstance();
