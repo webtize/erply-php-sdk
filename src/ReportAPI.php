@@ -28,7 +28,7 @@ class ReportAPI
     {
         $method = 'GET';
         $link = '/v1/payments/total-by-type';
-        return new TransactionTotalByType($this->execute($method, $link, $params));
+        return $this->execute($method, $link, $params);
     }
 
     public static function getReportInstance()
